@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MetroFramework.Forms;
 
 namespace Proyecto
 {
-    public partial class Form1 : Form
+    public partial class Login : MetroForm
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
