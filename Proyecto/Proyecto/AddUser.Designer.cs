@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUser));
             this.txtName = new MetroFramework.Controls.MetroTextBox();
             this.txtPassword = new MetroFramework.Controls.MetroTextBox();
             this.cmbUserRol = new MetroFramework.Controls.MetroComboBox();
@@ -46,7 +47,7 @@
             // 
             // 
             this.txtName.CustomButton.Image = null;
-            this.txtName.CustomButton.Location = new System.Drawing.Point(268, 1);
+            this.txtName.CustomButton.Location = new System.Drawing.Point(218, 1);
             this.txtName.CustomButton.Name = "";
             this.txtName.CustomButton.Size = new System.Drawing.Size(31, 31);
             this.txtName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -69,7 +70,7 @@
             this.txtName.SelectionStart = 0;
             this.txtName.ShortcutsEnabled = true;
             this.txtName.ShowClearButton = true;
-            this.txtName.Size = new System.Drawing.Size(300, 33);
+            this.txtName.Size = new System.Drawing.Size(250, 33);
             this.txtName.TabIndex = 1;
             this.txtName.UseSelectable = true;
             this.txtName.UseStyleColors = true;
@@ -83,7 +84,7 @@
             // 
             // 
             this.txtPassword.CustomButton.Image = null;
-            this.txtPassword.CustomButton.Location = new System.Drawing.Point(268, 1);
+            this.txtPassword.CustomButton.Location = new System.Drawing.Point(218, 1);
             this.txtPassword.CustomButton.Name = "";
             this.txtPassword.CustomButton.Size = new System.Drawing.Size(31, 31);
             this.txtPassword.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -106,7 +107,7 @@
             this.txtPassword.SelectionStart = 0;
             this.txtPassword.ShortcutsEnabled = true;
             this.txtPassword.ShowClearButton = true;
-            this.txtPassword.Size = new System.Drawing.Size(300, 33);
+            this.txtPassword.Size = new System.Drawing.Size(250, 33);
             this.txtPassword.TabIndex = 4;
             this.txtPassword.UseSelectable = true;
             this.txtPassword.UseStyleColors = true;
@@ -125,7 +126,7 @@
             this.cmbUserRol.Location = new System.Drawing.Point(75, 241);
             this.cmbUserRol.Name = "cmbUserRol";
             this.cmbUserRol.PromptText = "Elija un Rol";
-            this.cmbUserRol.Size = new System.Drawing.Size(300, 35);
+            this.cmbUserRol.Size = new System.Drawing.Size(250, 35);
             this.cmbUserRol.TabIndex = 3;
             this.cmbUserRol.UseSelectable = true;
             this.cmbUserRol.UseStyleColors = true;
@@ -141,7 +142,7 @@
             // 
             // 
             this.txtEmail.CustomButton.Image = global::Proyecto.Properties.Resources.Email;
-            this.txtEmail.CustomButton.Location = new System.Drawing.Point(268, 1);
+            this.txtEmail.CustomButton.Location = new System.Drawing.Point(218, 1);
             this.txtEmail.CustomButton.Name = "";
             this.txtEmail.CustomButton.Size = new System.Drawing.Size(31, 31);
             this.txtEmail.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -164,7 +165,7 @@
             this.txtEmail.SelectionStart = 0;
             this.txtEmail.ShortcutsEnabled = true;
             this.txtEmail.ShowClearButton = true;
-            this.txtEmail.Size = new System.Drawing.Size(300, 33);
+            this.txtEmail.Size = new System.Drawing.Size(250, 33);
             this.txtEmail.TabIndex = 0;
             this.txtEmail.UseSelectable = true;
             this.txtEmail.UseStyleColors = true;
@@ -193,6 +194,7 @@
             // btnCancelar
             // 
             this.btnCancelar.ActiveControl = null;
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Location = new System.Drawing.Point(250, 367);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(125, 48);
@@ -219,15 +221,17 @@
             this.cmbGender.Location = new System.Drawing.Point(75, 184);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.PromptText = "Elija un genero";
-            this.cmbGender.Size = new System.Drawing.Size(300, 35);
+            this.cmbGender.Size = new System.Drawing.Size(250, 35);
             this.cmbGender.TabIndex = 2;
             this.cmbGender.UseSelectable = true;
             this.cmbGender.UseStyleColors = true;
             // 
             // AddUser
             // 
+            this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(450, 450);
             this.Controls.Add(this.cmbGender);
             this.Controls.Add(this.btnCancelar);
@@ -236,6 +240,8 @@
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtEmail);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "AddUser";
             this.Resizable = false;
             this.Text = "Agregar Usuario";

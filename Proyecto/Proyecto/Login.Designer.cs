@@ -58,7 +58,7 @@
             this.txtEmail.CustomButton.Visible = false;
             this.txtEmail.DisplayIcon = true;
             this.txtEmail.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.txtEmail.Icon = ((System.Drawing.Image)(resources.GetObject("Email")));
+            this.txtEmail.Icon = ((System.Drawing.Image)(resources.GetObject("txtEmail.Icon")));
             this.txtEmail.IconRight = true;
             this.txtEmail.Lines = new string[0];
             this.txtEmail.Location = new System.Drawing.Point(75, 89);
@@ -95,7 +95,7 @@
             this.txtPassword.CustomButton.Visible = false;
             this.txtPassword.DisplayIcon = true;
             this.txtPassword.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.txtPassword.Icon = ((System.Drawing.Image)(resources.GetObject("Password")));
+            this.txtPassword.Icon = ((System.Drawing.Image)(resources.GetObject("txtPassword.Icon")));
             this.txtPassword.IconRight = true;
             this.txtPassword.Lines = new string[0];
             this.txtPassword.Location = new System.Drawing.Point(75, 147);
@@ -128,7 +128,7 @@
             this.btnAceptar.TabIndex = 2;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAceptar.TileImage = ((System.Drawing.Image)(resources.GetObject("Accept")));
+            this.btnAceptar.TileImage = ((System.Drawing.Image)(resources.GetObject("btnAceptar.TileImage")));
             this.btnAceptar.TileImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAceptar.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.btnAceptar.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
@@ -146,13 +146,14 @@
             this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelar.TileImage = ((System.Drawing.Image)(resources.GetObject("Cancel")));
+            this.btnCancelar.TileImage = ((System.Drawing.Image)(resources.GetObject("btnCancelar.TileImage")));
             this.btnCancelar.TileImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelar.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.btnCancelar.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.btnCancelar.UseSelectable = true;
             this.btnCancelar.UseStyleColors = true;
             this.btnCancelar.UseTileImage = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // Login
             // 

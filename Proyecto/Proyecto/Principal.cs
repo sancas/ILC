@@ -32,6 +32,13 @@ namespace Proyecto
         private void Principal_Load(object sender, EventArgs e)
         {
             this.StyleManager = PrincipalStyleManager;
+            this.MainTabControl.ItemSize = new Size(0, 1);
+            this.MainTabControl.Appearance = TabAppearance.FlatButtons;
+            this.MainTabControl.SizeMode = TabSizeMode.Fixed;
+            foreach (TabPage tb in MainTabControl.TabPages)
+            {
+                tb.ResetText();
+            }
             this.lblAuthUserEmail.Text = AuthUser.Email;
             this.Text = "Bienvenido " + this.AuthUser.Name.ToString();
             if (AuthUser.Role.Name == "Admin")
@@ -44,7 +51,7 @@ namespace Proyecto
                 {
                     this.avatarPictureBox.Image = ((System.Drawing.Image)(Resources.AdminFemale));
                 }
-                this.ActiveControl = UsersTabPage;
+                this.ActiveControl = RolesTabPage;
             }
             else if(AuthUser.Role.Name == "Operator")
             {
@@ -146,7 +153,56 @@ namespace Proyecto
 
         private void linkChangePassword_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            ChangePassword frmChangePassword = new ChangePassword(AuthUser, PrincipalStyleManager);
+            frmChangePassword.ShowDialog(this);
+            this.Show();
+            this.Focus();
+            if (frmChangePassword.DialogResult == DialogResult.OK)
+            {
+                MetroFramework.MetroMessageBox.Show(this, "Contraseña modificada satisfactoriamente.\nSe procedera a cerrar la sesion.", "Cambio de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Close();
+            }
+        }
 
+        private void RolesTabPage_Enter(object sender, EventArgs e)
+        {
+            this.roleBindingSource.DataSource = IlcSet.Roles.ToList();
+        }
+
+        async private void roleBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            if (await this.IlcSet.SaveChangesAsync() == 1)
+                MetroFramework.MetroMessageBox.Show(this, "Base de datos guardada correctamente", "Base de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MetroFramework.MetroMessageBox.Show(this, "No se pudo guardar la base", "Error Base de datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void roleBindingNavigatorNewItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AddRole frmAddRole = new AddRole();
+            frmAddRole.ShowDialog(this);
+            this.Show();
+            this.Focus();
+            if (frmAddRole.DialogResult == DialogResult.OK)
+                MetroFramework.MetroMessageBox.Show(this, "Rol creado correctamente", "Role", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MetroFramework.MetroMessageBox.Show(this, "No se creo el rol", "Role", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            this.roleBindingSource.DataSource = this.IlcSet.Roles.ToList();
+        }
+
+        private void roleBindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            if (this.roleDataGridView.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow dgvw in roleDataGridView.SelectedRows)
+                {
+                    IlcSet.Roles.Remove(IlcSet.Roles.Find(dgvw.Cells[0].Value));
+                    this.roleDataGridView.Rows.RemoveAt(dgvw.Index);
+                }
+                IlcSet.SaveChanges();
+            }
         }
     }
 }

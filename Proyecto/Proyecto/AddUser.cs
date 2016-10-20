@@ -14,6 +14,7 @@ namespace Proyecto
 {
     public partial class AddUser : MetroForm
     {
+        private User AuthUser;
         public AddUser()
         {
             //InitializeComponent();
@@ -25,6 +26,7 @@ namespace Proyecto
             {
                 InitializeComponent();
                 this.StyleManager = StyleManager;
+                this.AuthUser = AuthUser;
             }
         }
 
@@ -38,7 +40,7 @@ namespace Proyecto
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Operaciones OP = new Operaciones();
+            Operaciones OP = new Operaciones(AuthUser);
             if (OP.AgregarUsuario(txtName.Text, txtEmail.Text, "M", txtPassword.Text, int.Parse(cmbUserRol.SelectedValue.ToString())))
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Close();

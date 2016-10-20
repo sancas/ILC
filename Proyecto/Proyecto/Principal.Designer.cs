@@ -33,6 +33,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PrincipalStyleManager = new MetroFramework.Components.MetroStyleManager(this.components);
             this.TopPanel = new MetroFramework.Controls.MetroPanel();
             this.TopUserInfoPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -48,6 +51,8 @@
             this.MainTabControl = new MetroFramework.Controls.MetroTabControl();
             this.UsersTabPage = new MetroFramework.Controls.MetroTabPage();
             this.userDataGridView = new MetroFramework.Controls.MetroGrid();
+            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -58,11 +63,26 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.userBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.userBindingNavigatorAddNew = new System.Windows.Forms.ToolStripButton();
             this.userBindingNavigatorDelete = new System.Windows.Forms.ToolStripButton();
+            this.userBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.RolesTabPage = new MetroFramework.Controls.MetroTabPage();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.roleDataGridView = new MetroFramework.Controls.MetroGrid();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roleBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorCountItem1 = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorMoveFirstItem1 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem1 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem1 = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem1 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem1 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.roleBindingNavigatorNewItem = new System.Windows.Forms.ToolStripButton();
+            this.roleBindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.roleBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.TravelProblemsTabPage = new MetroFramework.Controls.MetroTabPage();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.GraphTabPage = new MetroFramework.Controls.MetroTabPage();
@@ -72,12 +92,10 @@
             this.roleIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoleId = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.RoleId = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.PrincipalStyleManager)).BeginInit();
             this.TopPanel.SuspendLayout();
             this.TopUserInfoPanel.SuspendLayout();
@@ -87,13 +105,16 @@
             this.MainTabControl.SuspendLayout();
             this.UsersTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingNavigator)).BeginInit();
             this.userBindingNavigator.SuspendLayout();
             this.RolesTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roleDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleBindingNavigator)).BeginInit();
+            this.roleBindingNavigator.SuspendLayout();
             this.TravelProblemsTabPage.SuspendLayout();
             this.GraphTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // PrincipalStyleManager
@@ -277,18 +298,16 @@
             // 
             // MainTabControl
             // 
-            this.MainTabControl.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.MainTabControl.Controls.Add(this.UsersTabPage);
             this.MainTabControl.Controls.Add(this.RolesTabPage);
             this.MainTabControl.Controls.Add(this.TravelProblemsTabPage);
             this.MainTabControl.Controls.Add(this.GraphTabPage);
             this.MainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainTabControl.ItemSize = new System.Drawing.Size(0, 1);
+            this.MainTabControl.ItemSize = new System.Drawing.Size(54, 20);
             this.MainTabControl.Location = new System.Drawing.Point(103, 3);
             this.MainTabControl.Name = "MainTabControl";
-            this.MainTabControl.SelectedIndex = 0;
+            this.MainTabControl.SelectedIndex = 1;
             this.MainTabControl.Size = new System.Drawing.Size(514, 360);
-            this.MainTabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.MainTabControl.TabIndex = 4;
             this.MainTabControl.UseSelectable = true;
             // 
@@ -300,10 +319,11 @@
             this.UsersTabPage.HorizontalScrollbarBarColor = false;
             this.UsersTabPage.HorizontalScrollbarHighlightOnWheel = false;
             this.UsersTabPage.HorizontalScrollbarSize = 0;
-            this.UsersTabPage.Location = new System.Drawing.Point(4, 5);
+            this.UsersTabPage.Location = new System.Drawing.Point(4, 24);
             this.UsersTabPage.Name = "UsersTabPage";
-            this.UsersTabPage.Size = new System.Drawing.Size(506, 351);
+            this.UsersTabPage.Size = new System.Drawing.Size(506, 332);
             this.UsersTabPage.TabIndex = 0;
+            this.UsersTabPage.Text = "Users";
             this.UsersTabPage.VerticalScrollbar = true;
             this.UsersTabPage.VerticalScrollbarBarColor = false;
             this.UsersTabPage.VerticalScrollbarHighlightOnWheel = false;
@@ -363,9 +383,17 @@
             this.userDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.userDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.userDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.userDataGridView.Size = new System.Drawing.Size(506, 326);
+            this.userDataGridView.Size = new System.Drawing.Size(506, 307);
             this.userDataGridView.TabIndex = 5;
             this.userDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.userDataGridView_DataError);
+            // 
+            // roleBindingSource
+            // 
+            this.roleBindingSource.DataSource = typeof(Proyecto.Data.Role);
+            // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataSource = typeof(Proyecto.Data.User);
             // 
             // userBindingNavigator
             // 
@@ -396,7 +424,7 @@
             this.userBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
             this.userBindingNavigator.Size = new System.Drawing.Size(506, 25);
             this.userBindingNavigator.TabIndex = 4;
-            this.userBindingNavigator.Text = "bindingNavigator1";
+            this.userBindingNavigator.Text = "userBindingNavigator";
             // 
             // bindingNavigatorCountItem
             // 
@@ -465,15 +493,6 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // userBindingNavigatorSaveItem
-            // 
-            this.userBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.userBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("userBindingNavigatorSaveItem.Image")));
-            this.userBindingNavigatorSaveItem.Name = "userBindingNavigatorSaveItem";
-            this.userBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.userBindingNavigatorSaveItem.Text = "Guardar datos";
-            this.userBindingNavigatorSaveItem.Click += new System.EventHandler(this.userBindingNavigatorSaveItem_Click);
-            // 
             // userBindingNavigatorAddNew
             // 
             this.userBindingNavigatorAddNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -494,28 +513,226 @@
             this.userBindingNavigatorDelete.Text = "Eliminar usuario";
             this.userBindingNavigatorDelete.Click += new System.EventHandler(this.userBindingNavigatorDelete_Click);
             // 
+            // userBindingNavigatorSaveItem
+            // 
+            this.userBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.userBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("userBindingNavigatorSaveItem.Image")));
+            this.userBindingNavigatorSaveItem.Name = "userBindingNavigatorSaveItem";
+            this.userBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.userBindingNavigatorSaveItem.Text = "Guardar datos";
+            this.userBindingNavigatorSaveItem.Click += new System.EventHandler(this.userBindingNavigatorSaveItem_Click);
+            // 
             // RolesTabPage
             // 
-            this.RolesTabPage.Controls.Add(this.metroLabel2);
+            this.RolesTabPage.Controls.Add(this.roleDataGridView);
+            this.RolesTabPage.Controls.Add(this.roleBindingNavigator);
             this.RolesTabPage.HorizontalScrollbarBarColor = true;
             this.RolesTabPage.HorizontalScrollbarHighlightOnWheel = false;
             this.RolesTabPage.HorizontalScrollbarSize = 10;
-            this.RolesTabPage.Location = new System.Drawing.Point(4, 5);
+            this.RolesTabPage.Location = new System.Drawing.Point(4, 24);
             this.RolesTabPage.Name = "RolesTabPage";
-            this.RolesTabPage.Size = new System.Drawing.Size(506, 351);
+            this.RolesTabPage.Size = new System.Drawing.Size(506, 332);
             this.RolesTabPage.TabIndex = 1;
+            this.RolesTabPage.Text = "Roles";
             this.RolesTabPage.VerticalScrollbarBarColor = true;
             this.RolesTabPage.VerticalScrollbarHighlightOnWheel = false;
             this.RolesTabPage.VerticalScrollbarSize = 10;
+            this.RolesTabPage.Enter += new System.EventHandler(this.RolesTabPage_Enter);
             // 
-            // metroLabel2
+            // roleDataGridView
             // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(168, 166);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(87, 19);
-            this.metroLabel2.TabIndex = 2;
-            this.metroLabel2.Text = "CRUD ROLES";
+            this.roleDataGridView.AllowUserToOrderColumns = true;
+            this.roleDataGridView.AllowUserToResizeRows = false;
+            this.roleDataGridView.AutoGenerateColumns = false;
+            this.roleDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.roleDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.roleDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.roleDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.roleDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.roleDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.roleDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.roleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.roleDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.nameDataGridViewTextBoxColumn1});
+            this.roleDataGridView.DataSource = this.roleBindingSource;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.roleDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            this.roleDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roleDataGridView.EnableHeadersVisualStyles = false;
+            this.roleDataGridView.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.roleDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.roleDataGridView.Location = new System.Drawing.Point(0, 25);
+            this.roleDataGridView.Name = "roleDataGridView";
+            this.roleDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.roleDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.roleDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.roleDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.roleDataGridView.Size = new System.Drawing.Size(506, 307);
+            this.roleDataGridView.TabIndex = 4;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            // 
+            // roleBindingNavigator
+            // 
+            this.roleBindingNavigator.AddNewItem = null;
+            this.roleBindingNavigator.BindingSource = this.roleBindingSource;
+            this.roleBindingNavigator.CountItem = this.bindingNavigatorCountItem1;
+            this.roleBindingNavigator.DeleteItem = null;
+            this.roleBindingNavigator.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.roleBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorMoveFirstItem1,
+            this.bindingNavigatorMovePreviousItem1,
+            this.bindingNavigatorSeparator3,
+            this.bindingNavigatorPositionItem1,
+            this.bindingNavigatorCountItem1,
+            this.bindingNavigatorSeparator4,
+            this.bindingNavigatorMoveNextItem1,
+            this.bindingNavigatorMoveLastItem1,
+            this.bindingNavigatorSeparator5,
+            this.roleBindingNavigatorNewItem,
+            this.roleBindingNavigatorDeleteItem,
+            this.roleBindingNavigatorSaveItem});
+            this.roleBindingNavigator.Location = new System.Drawing.Point(0, 0);
+            this.roleBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem1;
+            this.roleBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem1;
+            this.roleBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem1;
+            this.roleBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem1;
+            this.roleBindingNavigator.Name = "roleBindingNavigator";
+            this.roleBindingNavigator.PositionItem = this.bindingNavigatorPositionItem1;
+            this.roleBindingNavigator.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.roleBindingNavigator.Size = new System.Drawing.Size(506, 25);
+            this.roleBindingNavigator.TabIndex = 3;
+            this.roleBindingNavigator.Text = "roleBindingNavigator";
+            // 
+            // bindingNavigatorCountItem1
+            // 
+            this.bindingNavigatorCountItem1.Name = "bindingNavigatorCountItem1";
+            this.bindingNavigatorCountItem1.Size = new System.Drawing.Size(37, 22);
+            this.bindingNavigatorCountItem1.Text = "de {0}";
+            this.bindingNavigatorCountItem1.ToolTipText = "Número total de elementos";
+            // 
+            // bindingNavigatorMoveFirstItem1
+            // 
+            this.bindingNavigatorMoveFirstItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem1.Image")));
+            this.bindingNavigatorMoveFirstItem1.Name = "bindingNavigatorMoveFirstItem1";
+            this.bindingNavigatorMoveFirstItem1.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem1.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveFirstItem1.Text = "Mover primero";
+            // 
+            // bindingNavigatorMovePreviousItem1
+            // 
+            this.bindingNavigatorMovePreviousItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem1.Image")));
+            this.bindingNavigatorMovePreviousItem1.Name = "bindingNavigatorMovePreviousItem1";
+            this.bindingNavigatorMovePreviousItem1.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem1.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMovePreviousItem1.Text = "Mover anterior";
+            // 
+            // bindingNavigatorSeparator3
+            // 
+            this.bindingNavigatorSeparator3.Name = "bindingNavigatorSeparator3";
+            this.bindingNavigatorSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorPositionItem1
+            // 
+            this.bindingNavigatorPositionItem1.AccessibleName = "Posición";
+            this.bindingNavigatorPositionItem1.AutoSize = false;
+            this.bindingNavigatorPositionItem1.Name = "bindingNavigatorPositionItem1";
+            this.bindingNavigatorPositionItem1.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem1.Text = "0";
+            this.bindingNavigatorPositionItem1.ToolTipText = "Posición actual";
+            // 
+            // bindingNavigatorSeparator4
+            // 
+            this.bindingNavigatorSeparator4.Name = "bindingNavigatorSeparator4";
+            this.bindingNavigatorSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorMoveNextItem1
+            // 
+            this.bindingNavigatorMoveNextItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem1.Image")));
+            this.bindingNavigatorMoveNextItem1.Name = "bindingNavigatorMoveNextItem1";
+            this.bindingNavigatorMoveNextItem1.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem1.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveNextItem1.Text = "Mover siguiente";
+            // 
+            // bindingNavigatorMoveLastItem1
+            // 
+            this.bindingNavigatorMoveLastItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem1.Image")));
+            this.bindingNavigatorMoveLastItem1.Name = "bindingNavigatorMoveLastItem1";
+            this.bindingNavigatorMoveLastItem1.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem1.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveLastItem1.Text = "Mover último";
+            // 
+            // bindingNavigatorSeparator5
+            // 
+            this.bindingNavigatorSeparator5.Name = "bindingNavigatorSeparator5";
+            this.bindingNavigatorSeparator5.Size = new System.Drawing.Size(6, 25);
+            // 
+            // roleBindingNavigatorNewItem
+            // 
+            this.roleBindingNavigatorNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.roleBindingNavigatorNewItem.Image = ((System.Drawing.Image)(resources.GetObject("roleBindingNavigatorNewItem.Image")));
+            this.roleBindingNavigatorNewItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.roleBindingNavigatorNewItem.Name = "roleBindingNavigatorNewItem";
+            this.roleBindingNavigatorNewItem.Size = new System.Drawing.Size(23, 22);
+            this.roleBindingNavigatorNewItem.Text = "Agregar role";
+            this.roleBindingNavigatorNewItem.Click += new System.EventHandler(this.roleBindingNavigatorNewItem_Click);
+            // 
+            // roleBindingNavigatorDeleteItem
+            // 
+            this.roleBindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.roleBindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("roleBindingNavigatorDeleteItem.Image")));
+            this.roleBindingNavigatorDeleteItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.roleBindingNavigatorDeleteItem.Name = "roleBindingNavigatorDeleteItem";
+            this.roleBindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.roleBindingNavigatorDeleteItem.Text = "toolStripButton1";
+            this.roleBindingNavigatorDeleteItem.Click += new System.EventHandler(this.roleBindingNavigatorDeleteItem_Click);
+            // 
+            // roleBindingNavigatorSaveItem
+            // 
+            this.roleBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.roleBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("roleBindingNavigatorSaveItem.Image")));
+            this.roleBindingNavigatorSaveItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.roleBindingNavigatorSaveItem.Name = "roleBindingNavigatorSaveItem";
+            this.roleBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.roleBindingNavigatorSaveItem.Text = "Guardar base";
+            this.roleBindingNavigatorSaveItem.Click += new System.EventHandler(this.roleBindingNavigatorSaveItem_Click);
             // 
             // TravelProblemsTabPage
             // 
@@ -523,10 +740,11 @@
             this.TravelProblemsTabPage.HorizontalScrollbarBarColor = true;
             this.TravelProblemsTabPage.HorizontalScrollbarHighlightOnWheel = false;
             this.TravelProblemsTabPage.HorizontalScrollbarSize = 10;
-            this.TravelProblemsTabPage.Location = new System.Drawing.Point(4, 5);
+            this.TravelProblemsTabPage.Location = new System.Drawing.Point(4, 24);
             this.TravelProblemsTabPage.Name = "TravelProblemsTabPage";
-            this.TravelProblemsTabPage.Size = new System.Drawing.Size(506, 351);
+            this.TravelProblemsTabPage.Size = new System.Drawing.Size(506, 332);
             this.TravelProblemsTabPage.TabIndex = 2;
+            this.TravelProblemsTabPage.Text = "Travel Problems";
             this.TravelProblemsTabPage.VerticalScrollbarBarColor = true;
             this.TravelProblemsTabPage.VerticalScrollbarHighlightOnWheel = false;
             this.TravelProblemsTabPage.VerticalScrollbarSize = 10;
@@ -546,10 +764,11 @@
             this.GraphTabPage.HorizontalScrollbarBarColor = true;
             this.GraphTabPage.HorizontalScrollbarHighlightOnWheel = false;
             this.GraphTabPage.HorizontalScrollbarSize = 10;
-            this.GraphTabPage.Location = new System.Drawing.Point(4, 5);
+            this.GraphTabPage.Location = new System.Drawing.Point(4, 24);
             this.GraphTabPage.Name = "GraphTabPage";
-            this.GraphTabPage.Size = new System.Drawing.Size(506, 351);
+            this.GraphTabPage.Size = new System.Drawing.Size(506, 332);
             this.GraphTabPage.TabIndex = 3;
+            this.GraphTabPage.Text = "Graph";
             this.GraphTabPage.VerticalScrollbarBarColor = true;
             this.GraphTabPage.VerticalScrollbarHighlightOnWheel = false;
             this.GraphTabPage.VerticalScrollbarSize = 10;
@@ -596,18 +815,7 @@
             this.Id.DataPropertyName = "Id";
             this.Id.HeaderText = "Id";
             this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
             this.Id.Visible = false;
-            // 
-            // RoleId
-            // 
-            this.RoleId.DataPropertyName = "RoleId";
-            this.RoleId.DataSource = this.roleBindingSource;
-            this.RoleId.DisplayMember = "Name";
-            this.RoleId.HeaderText = "Role ID";
-            this.RoleId.Name = "RoleId";
-            this.RoleId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.RoleId.ValueMember = "Id";
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -627,13 +835,15 @@
             this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             // 
-            // roleBindingSource
+            // RoleId
             // 
-            this.roleBindingSource.DataSource = typeof(Proyecto.Data.Role);
-            // 
-            // userBindingSource
-            // 
-            this.userBindingSource.DataSource = typeof(Proyecto.Data.User);
+            this.RoleId.DataPropertyName = "RoleId";
+            this.RoleId.DataSource = this.roleBindingSource;
+            this.RoleId.DisplayMember = "Name";
+            this.RoleId.HeaderText = "Role";
+            this.RoleId.Name = "RoleId";
+            this.RoleId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.RoleId.ValueMember = "Id";
             // 
             // Principal
             // 
@@ -662,17 +872,21 @@
             this.UsersTabPage.ResumeLayout(false);
             this.UsersTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingNavigator)).EndInit();
             this.userBindingNavigator.ResumeLayout(false);
             this.userBindingNavigator.PerformLayout();
             this.RolesTabPage.ResumeLayout(false);
             this.RolesTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roleDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleBindingNavigator)).EndInit();
+            this.roleBindingNavigator.ResumeLayout(false);
+            this.roleBindingNavigator.PerformLayout();
             this.TravelProblemsTabPage.ResumeLayout(false);
             this.TravelProblemsTabPage.PerformLayout();
             this.GraphTabPage.ResumeLayout(false);
             this.GraphTabPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -695,7 +909,6 @@
         private MetroFramework.Controls.MetroTabPage RolesTabPage;
         private MetroFramework.Controls.MetroTabPage TravelProblemsTabPage;
         private MetroFramework.Controls.MetroTabPage GraphTabPage;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroGrid userDataGridView;
@@ -718,6 +931,22 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn roleIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn roleDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource roleBindingSource;
+        private System.Windows.Forms.BindingNavigator roleBindingNavigator;
+        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem1;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator3;
+        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem1;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator4;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem1;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator5;
+        private MetroFramework.Controls.MetroGrid roleDataGridView;
+        private System.Windows.Forms.ToolStripButton roleBindingNavigatorSaveItem;
+        private System.Windows.Forms.ToolStripButton roleBindingNavigatorNewItem;
+        private System.Windows.Forms.ToolStripButton roleBindingNavigatorDeleteItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
