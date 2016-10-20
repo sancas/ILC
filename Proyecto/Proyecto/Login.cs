@@ -28,7 +28,8 @@ namespace Proyecto
                 if (AuthUser != null)
                 {
                     this.Hide();
-                    //Lanzar formulario principal pasando el usuario como parametro
+                    Principal frmPrincipal = new Principal(AuthUser);
+                    frmPrincipal.ShowDialog(this);
                     ClearData();
                     this.Show();
                     this.Focus();
@@ -43,6 +44,19 @@ namespace Proyecto
         {
             this.txtEmail.Clear();
             this.txtPassword.Clear();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            this.StyleManager = LoginStyleManager;
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnAceptar.PerformClick();
+            }
         }
     }
 }

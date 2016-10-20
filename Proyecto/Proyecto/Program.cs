@@ -18,5 +18,5 @@ namespace Proyecto
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
         }
-    }
+    }   
 }

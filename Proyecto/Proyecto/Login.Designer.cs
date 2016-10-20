@@ -58,7 +58,7 @@
             this.txtEmail.CustomButton.Visible = false;
             this.txtEmail.DisplayIcon = true;
             this.txtEmail.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.txtEmail.Icon = ((System.Drawing.Image)(resources.GetObject("txtEmail.Icon")));
+            this.txtEmail.Icon = ((System.Drawing.Image)(resources.GetObject("Email")));
             this.txtEmail.IconRight = true;
             this.txtEmail.Lines = new string[0];
             this.txtEmail.Location = new System.Drawing.Point(75, 89);
@@ -95,7 +95,7 @@
             this.txtPassword.CustomButton.Visible = false;
             this.txtPassword.DisplayIcon = true;
             this.txtPassword.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.txtPassword.Icon = ((System.Drawing.Image)(resources.GetObject("txtPassword.Icon")));
+            this.txtPassword.Icon = ((System.Drawing.Image)(resources.GetObject("Password")));
             this.txtPassword.IconRight = true;
             this.txtPassword.Lines = new string[0];
             this.txtPassword.Location = new System.Drawing.Point(75, 147);
@@ -117,6 +117,7 @@
             this.txtPassword.WaterMark = "Password";
             this.txtPassword.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtPassword.WaterMarkFont = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
             // 
             // btnAceptar
             // 
@@ -127,7 +128,7 @@
             this.btnAceptar.TabIndex = 2;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAceptar.TileImage = ((System.Drawing.Image)(resources.GetObject("btnAceptar.TileImage")));
+            this.btnAceptar.TileImage = ((System.Drawing.Image)(resources.GetObject("Accept")));
             this.btnAceptar.TileImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAceptar.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.btnAceptar.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
@@ -145,7 +146,7 @@
             this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelar.TileImage = ((System.Drawing.Image)(resources.GetObject("btnCancelar.TileImage")));
+            this.btnCancelar.TileImage = ((System.Drawing.Image)(resources.GetObject("Cancel")));
             this.btnCancelar.TileImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelar.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.btnCancelar.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
@@ -169,18 +170,18 @@
             this.Name = "Login";
             this.Resizable = false;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.LoginStyleManager)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private MetroFramework.Components.MetroStyleManager LoginStyleManager;
         private MetroFramework.Controls.MetroTile btnAceptar;
         private MetroFramework.Controls.MetroTextBox txtPassword;
         private MetroFramework.Controls.MetroTextBox txtEmail;
         private MetroFramework.Controls.MetroTile btnCancelar;
+        private MetroFramework.Components.MetroStyleManager LoginStyleManager;
     }
 }
 
