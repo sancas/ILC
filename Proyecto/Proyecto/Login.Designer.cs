@@ -134,6 +134,7 @@
             this.btnAceptar.UseSelectable = true;
             this.btnAceptar.UseStyleColors = true;
             this.btnAceptar.UseTileImage = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
