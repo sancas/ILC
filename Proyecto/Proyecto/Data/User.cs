@@ -6,8 +6,8 @@ namespace Proyecto.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("UserSet")]
-    public partial class UserSet
+    [Table("User")]
+    public partial class User
     {
         public int Id { get; set; }
 
@@ -26,6 +26,6 @@ namespace Proyecto.Data
 
         public int RoleId { get; set; }
 
-        public virtual RoleSet RoleSet { get; set; }
+        public virtual Role Role { get; set; }
     }
 }

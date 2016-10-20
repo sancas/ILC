@@ -12,32 +12,30 @@ namespace Proyecto.Data
         {
         }
 
-        public virtual DbSet<EdgeSet> EdgeSets { get; set; }
-        public virtual DbSet<GraphSet> GraphSets { get; set; }
-        public virtual DbSet<NodeSet> NodeSets { get; set; }
-        public virtual DbSet<RoleSet> RoleSets { get; set; }
-        public virtual DbSet<UserSet> UserSets { get; set; }
+        public virtual DbSet<Edge> Edges { get; set; }
+        public virtual DbSet<Graph> Graphs { get; set; }
+        public virtual DbSet<Node> Nodes { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<EdgeSet>()
-                .HasMany(e => e.NodeSets)
-                .WithMany(e => e.EdgeSets)
-                .Map(m => m.ToTable("EdgeNode").MapLeftKey("Edge_Id").MapRightKey("Node_Id"));
+            modelBuilder.Entity<Edge>()
+                .HasMany(e => e.Nodes)
+                .WithMany(e => e.Edges)
+                .Map(m => m.ToTable("EdgeNode"));
 
-            modelBuilder.Entity<GraphSet>()
-                .HasMany(e => e.NodeSets)
-                .WithRequired(e => e.GraphSet)
-                .HasForeignKey(e => e.GraphId)
+            modelBuilder.Entity<Graph>()
+                .HasMany(e => e.Nodes)
+                .WithRequired(e => e.Graph)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<RoleSet>()
-                .HasMany(e => e.UserSets)
-                .WithRequired(e => e.RoleSet)
-                .HasForeignKey(e => e.RoleId)
+            modelBuilder.Entity<Role>()
+                .HasMany(e => e.Users)
+                .WithRequired(e => e.Role)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<UserSet>()
+            modelBuilder.Entity<User>()
                 .Property(e => e.Gender)
                 .IsUnicode(false);
         }

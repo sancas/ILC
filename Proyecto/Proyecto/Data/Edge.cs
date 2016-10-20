@@ -6,13 +6,13 @@ namespace Proyecto.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("EdgeSet")]
-    public partial class EdgeSet
+    [Table("Edge")]
+    public partial class Edge
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EdgeSet()
+        public Edge()
         {
-            NodeSets = new HashSet<NodeSet>();
+            Nodes = new HashSet<Node>();
         }
 
         public int Id { get; set; }
@@ -21,6 +21,6 @@ namespace Proyecto.Data
         public string Value { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<NodeSet> NodeSets { get; set; }
+        public virtual ICollection<Node> Nodes { get; set; }
     }
 }

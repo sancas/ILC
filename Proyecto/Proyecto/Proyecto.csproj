@@ -69,12 +69,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\EdgeSet.cs" />
-    <Compile Include="Data\GraphSet.cs" />
+    <Compile Include="Data\Edge.cs" />
+    <Compile Include="Data\Graph.cs" />
     <Compile Include="Data\ILC.cs" />
-    <Compile Include="Data\NodeSet.cs" />
-    <Compile Include="Data\RoleSet.cs" />
-    <Compile Include="Data\UserSet.cs" />
+    <Compile Include="Data\Node.cs" />
+    <Compile Include="Data\Role.cs" />
+    <Compile Include="Data\User.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +109,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -6,13 +6,13 @@ namespace Proyecto.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("RoleSet")]
-    public partial class RoleSet
+    [Table("Node")]
+    public partial class Node
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public RoleSet()
+        public Node()
         {
-            UserSets = new HashSet<UserSet>();
+            Edges = new HashSet<Edge>();
         }
 
         public int Id { get; set; }
@@ -20,7 +20,14 @@ namespace Proyecto.Data
         [Required]
         public string Name { get; set; }
 
+        [Required]
+        public DbGeometry Location { get; set; }
+
+        public int GraphId { get; set; }
+
+        public virtual Graph Graph { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserSet> UserSets { get; set; }
+        public virtual ICollection<Edge> Edges { get; set; }
     }
 }
