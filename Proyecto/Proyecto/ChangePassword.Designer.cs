@@ -251,6 +251,7 @@
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.TopPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "ChangePassword";
             this.Resizable = false;
             this.Text = "Cambiar contraseña";
