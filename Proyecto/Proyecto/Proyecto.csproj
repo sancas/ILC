@@ -122,6 +122,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\Accept.png" />
+    <None Include="Images\TravelProblems96.png" />
+    <None Include="Images\Users96.png" />
+    <None Include="Images\Roles96.png" />
+    <None Include="Images\Graph96.png" />
     <None Include="Images\Graph.png" />
     <None Include="Images\TravelProblems.png" />
     <None Include="Images\Roles.png" />

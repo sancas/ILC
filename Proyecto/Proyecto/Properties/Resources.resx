@@ -127,11 +127,20 @@
   <data name="Graph" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Graph.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Graph96" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Graph96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Roles" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Roles.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Roles96" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Roles96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="TravelProblems" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\TravelProblems.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TravelProblems96" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\TravelProblems96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="UserFemale" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\UserFemale.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -141,5 +150,8 @@
   </data>
   <data name="Users" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\users.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Users96" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Users96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
