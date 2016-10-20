@@ -49,6 +49,7 @@ namespace Proyecto
         private void Login_Load(object sender, EventArgs e)
         {
             this.StyleManager = LoginStyleManager;
+            this.ActiveControl = txtEmail;
         }
 
         private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
