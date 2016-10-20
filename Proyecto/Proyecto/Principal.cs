@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Forms;
 using Proyecto.Data;
+using Proyecto.Properties;
 
 namespace Proyecto
 {
     public partial class Principal : MetroForm
     {
         User AuthUser; //Variable que almacenara el usuario logeado
-        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal)); //Variable para obtener los recursos de Principal
         public Principal()
         {
             //InitializeComponent();
@@ -36,24 +36,44 @@ namespace Proyecto
             {
                 if (AuthUser.Gender == "M")
                 {
-                    this.avatarPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("AdminMale")));
+                    this.avatarPictureBox.Image = ((System.Drawing.Image)(Resources.AdminMale));
                 }
                 else if (AuthUser.Gender == "F")
                 {
-                    this.avatarPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("AdminFemale")));
+                    this.avatarPictureBox.Image = ((System.Drawing.Image)(Resources.AdminFemale));
                 }
             }
             else if(AuthUser.Role.Name == "Operator")
             {
                 if (AuthUser.Gender == "M")
                 {
-                    this.avatarPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("UserMale")));
+                    this.avatarPictureBox.Image = ((System.Drawing.Image)(Resources.UserMale));
                 }
                 else if (AuthUser.Gender == "F")
                 {
-                    this.avatarPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("UserFemale")));
+                    this.avatarPictureBox.Image = ((System.Drawing.Image)(Resources.UserFemale));
                 }
             }
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            MainTabControl.SelectedIndex = 0;
+        }
+
+        private void btnRoles_Click(object sender, EventArgs e)
+        {
+            MainTabControl.SelectedIndex = 1;
+        }
+
+        private void btnTravelProblems_Click(object sender, EventArgs e)
+        {
+            MainTabControl.SelectedIndex = 2;
+        }
+
+        private void btnGraph_Click(object sender, EventArgs e)
+        {
+            MainTabControl.SelectedIndex = 3;
         }
     }
 }
