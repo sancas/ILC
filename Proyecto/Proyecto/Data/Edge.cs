@@ -18,7 +18,13 @@ namespace Proyecto.Data
         public int Id { get; set; }
 
         [Required]
-        public string Value { get; set; }
+        public string NodoSalida { get; set; }
+
+        [Required]
+        public string NodoLlegada { get; set; }
+
+        [Required]
+        public int Value { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Node> Nodes { get; set; }

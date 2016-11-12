@@ -59,7 +59,7 @@
             this.txtName.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txtName.Icon = global::Proyecto.Properties.Resources.Password;
             this.txtName.Lines = new string[0];
-            this.txtName.Location = new System.Drawing.Point(75, 129);
+            this.txtName.Location = new System.Drawing.Point(100, 129);
             this.txtName.MaxLength = 32767;
             this.txtName.Name = "txtName";
             this.txtName.PasswordChar = '\0';
@@ -96,7 +96,7 @@
             this.txtPassword.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txtPassword.Icon = global::Proyecto.Properties.Resources.Password2;
             this.txtPassword.Lines = new string[0];
-            this.txtPassword.Location = new System.Drawing.Point(75, 298);
+            this.txtPassword.Location = new System.Drawing.Point(100, 298);
             this.txtPassword.MaxLength = 32767;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '●';
@@ -123,7 +123,7 @@
             this.cmbUserRol.FontSize = MetroFramework.MetroComboBoxSize.Tall;
             this.cmbUserRol.FormattingEnabled = true;
             this.cmbUserRol.ItemHeight = 29;
-            this.cmbUserRol.Location = new System.Drawing.Point(75, 241);
+            this.cmbUserRol.Location = new System.Drawing.Point(100, 241);
             this.cmbUserRol.Name = "cmbUserRol";
             this.cmbUserRol.PromptText = "Elija un Rol";
             this.cmbUserRol.Size = new System.Drawing.Size(250, 35);
@@ -154,7 +154,7 @@
             this.txtEmail.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txtEmail.Icon = global::Proyecto.Properties.Resources.Email;
             this.txtEmail.Lines = new string[0];
-            this.txtEmail.Location = new System.Drawing.Point(75, 74);
+            this.txtEmail.Location = new System.Drawing.Point(100, 74);
             this.txtEmail.MaxLength = 32767;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PasswordChar = '\0';
@@ -218,7 +218,7 @@
             this.cmbGender.Items.AddRange(new object[] {
             "Hombre",
             "Mujer"});
-            this.cmbGender.Location = new System.Drawing.Point(75, 184);
+            this.cmbGender.Location = new System.Drawing.Point(100, 184);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.PromptText = "Elija un genero";
             this.cmbGender.Size = new System.Drawing.Size(250, 35);

@@ -61,7 +61,7 @@
             this.txtEmail.Icon = ((System.Drawing.Image)(resources.GetObject("txtEmail.Icon")));
             this.txtEmail.IconRight = true;
             this.txtEmail.Lines = new string[0];
-            this.txtEmail.Location = new System.Drawing.Point(75, 89);
+            this.txtEmail.Location = new System.Drawing.Point(100, 89);
             this.txtEmail.MaxLength = 32767;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PasswordChar = '\0';
@@ -98,7 +98,7 @@
             this.txtPassword.Icon = ((System.Drawing.Image)(resources.GetObject("txtPassword.Icon")));
             this.txtPassword.IconRight = true;
             this.txtPassword.Lines = new string[0];
-            this.txtPassword.Location = new System.Drawing.Point(75, 147);
+            this.txtPassword.Location = new System.Drawing.Point(100, 147);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this.txtPassword.MaxLength = 32767;
             this.txtPassword.Name = "txtPassword";

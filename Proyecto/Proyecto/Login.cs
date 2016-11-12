@@ -24,12 +24,21 @@ namespace Proyecto
         {
             using (var conexion = new ILC())
             {
-                User AuthUser = conexion.Users.Where(u => u.Email == this.txtEmail.Text && u.Password == this.txtPassword.Text).FirstOrDefault();
+                string hashedPassword = Operaciones.CalculateMD5Hash(this.txtPassword.Text);
+                User AuthUser = conexion.Users.Where(u => u.Email == this.txtEmail.Text && u.Password == hashedPassword).FirstOrDefault();
                 if (AuthUser != null)
                 {
                     this.Hide();
-                    Principal frmPrincipal = new Principal(AuthUser);
-                    frmPrincipal.ShowDialog(this);
+                    if (AuthUser.Role.Name == "Admin")
+                    {
+                        Principal frmPrincipal = new Principal(AuthUser);
+                        frmPrincipal.ShowDialog(this);
+                    }
+                    else
+                    {
+                        Graficador frmGraficador = new Graficador(AuthUser);
+                        frmGraficador.ShowDialog(this);
+                    }
                     ClearData();
                     this.Show();
                     this.Focus();

@@ -21,7 +21,10 @@ namespace Proyecto.Data
         public string Name { get; set; }
 
         [Required]
-        public DbGeometry Location { get; set; }
+        public int X { get; set; }
+
+        [Required]
+        public int Y { get; set; }
 
         public int GraphId { get; set; }
 

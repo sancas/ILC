@@ -306,7 +306,7 @@
             this.MainTabControl.ItemSize = new System.Drawing.Size(54, 20);
             this.MainTabControl.Location = new System.Drawing.Point(103, 3);
             this.MainTabControl.Name = "MainTabControl";
-            this.MainTabControl.SelectedIndex = 1;
+            this.MainTabControl.SelectedIndex = 0;
             this.MainTabControl.Size = new System.Drawing.Size(514, 360);
             this.MainTabControl.TabIndex = 4;
             this.MainTabControl.UseSelectable = true;

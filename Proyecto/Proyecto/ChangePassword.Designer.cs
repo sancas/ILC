@@ -147,7 +147,7 @@
             this.txtPassword.Icon = global::Proyecto.Properties.Resources.Password;
             this.txtPassword.IconRight = true;
             this.txtPassword.Lines = new string[0];
-            this.txtPassword.Location = new System.Drawing.Point(75, 161);
+            this.txtPassword.Location = new System.Drawing.Point(100, 161);
             this.txtPassword.MaxLength = 32767;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '●';
@@ -185,7 +185,7 @@
             this.txtPassword2.Icon = global::Proyecto.Properties.Resources.Password2;
             this.txtPassword2.IconRight = true;
             this.txtPassword2.Lines = new string[0];
-            this.txtPassword2.Location = new System.Drawing.Point(75, 206);
+            this.txtPassword2.Location = new System.Drawing.Point(100, 206);
             this.txtPassword2.MaxLength = 32767;
             this.txtPassword2.Name = "txtPassword2";
             this.txtPassword2.PasswordChar = '●';
