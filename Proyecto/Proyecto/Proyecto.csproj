@@ -89,6 +89,12 @@
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="CVertice.cs" />
+    <Compile Include="Data\Edge.cs" />
+    <Compile Include="Data\Graph.cs" />
+    <Compile Include="Data\ILC.cs" />
+    <Compile Include="Data\Node.cs" />
+    <Compile Include="Data\Role.cs" />
+    <Compile Include="Data\User.cs" />
     <Compile Include="Graficador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,9 +191,7 @@
     <Content Include="Images\Icon.ico" />
     <Content Include="Images\Password.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
