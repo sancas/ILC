@@ -20,10 +20,10 @@ namespace Proyecto.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Edge>()
-                .HasMany(e => e.Nodes)
-                .WithMany(e => e.Edges)
-                .Map(m => m.ToTable("EdgeNode"));
+            modelBuilder.Entity<Graph>()
+                .HasMany(e => e.Edges)
+                .WithRequired(e => e.Graph)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Graph>()
                 .HasMany(e => e.Nodes)

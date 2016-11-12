@@ -62,12 +62,9 @@ namespace Proyecto
                     nuevoNodo.Posicion = new Point(miNodo.X, miNodo.Y);
                     grafo.AgregarVertice(nuevoNodo);
                 }
-                foreach (Node miNodo in miGrafo.Nodes)
+                foreach (Edge miArista in miGrafo.Edges)
                 {
-                    foreach (Edge miArista in miNodo.Edges)
-                    {
                         grafo.AgregarArco(grafo.BuscarVertice(miArista.NodoSalida), grafo.BuscarVertice(miArista.NodoLlegada));
-                    }
                 }
                 nuevoNodo = null;
                 pbCanvas.Refresh();

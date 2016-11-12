@@ -12,6 +12,7 @@ namespace Proyecto.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Graph()
         {
+            Edges = new HashSet<Edge>();
             Nodes = new HashSet<Node>();
         }
 
@@ -23,6 +24,9 @@ namespace Proyecto.Data
         public byte Background { get; set; }
 
         public byte NodeIcon { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Edge> Edges { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Node> Nodes { get; set; }

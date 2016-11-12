@@ -9,12 +9,6 @@ namespace Proyecto.Data
     [Table("Edge")]
     public partial class Edge
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Edge()
-        {
-            Nodes = new HashSet<Node>();
-        }
-
         public int Id { get; set; }
 
         [Required]
@@ -23,10 +17,10 @@ namespace Proyecto.Data
         [Required]
         public string NodoLlegada { get; set; }
 
-        [Required]
         public int Value { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Node> Nodes { get; set; }
+        public int GraphId { get; set; }
+
+        public virtual Graph Graph { get; set; }
     }
 }
