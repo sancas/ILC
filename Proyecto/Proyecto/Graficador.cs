@@ -22,11 +22,8 @@ namespace Proyecto
         private CGrafo grafo; // instanciamos la clase CGrafo
         private Graph miGrafo; // instanciamos la clase Graph
         private CVertice nuevoNodo; // instanciamos la clase CVertice
-        private Node newNode; //instanaciamos la clase Node        
         private CVertice NodoOrigen; // instanciamos la clase CVertice
-        private Node SourceNode;
         private CVertice NodoDestino; // instanciamos la clase CVertice
-        private Node DestiniNode;
         private VMultiple frmVentanaMultiple; // Ventana para crear vertices, aristas, etc.
         private int var_control = 0; // la utilizaremos para determinar el estado en la pizarra:
         // 0 -> sin acción, 1 -> Dibujando arco, 2 -> Nuevo vértice
@@ -44,7 +41,6 @@ namespace Proyecto
             this.AuthUser = AuthUser;
             InitializeComponent();
             nuevoNodo = null;
-            newNode = null;
             var_control = 0;
             frmVentanaMultiple = null;
             tiempo = 100;
@@ -64,7 +60,7 @@ namespace Proyecto
                 }
                 foreach (Edge miArista in miGrafo.Edges)
                 {
-                        grafo.AgregarArco(grafo.BuscarVertice(miArista.NodoSalida), grafo.BuscarVertice(miArista.NodoLlegada));
+                    grafo.AgregarArco(grafo.BuscarVertice(miArista.NodoSalida), grafo.BuscarVertice(miArista.NodoLlegada), miArista.Value);
                 }
                 nuevoNodo = null;
                 pbCanvas.Refresh();
@@ -128,6 +124,9 @@ namespace Proyecto
                     {
                         if (grafo.BuscarVertice(frmVentanaMultiple.txtValor.Text) == null) //Si un nodo con el mismo valor no existe en el grafo
                         {
+                            Node newNode = new Node();
+                            newNode.Graph = miGrafo;
+                            newNode.GraphId = miGrafo.Id;
                             newNode.X = nuevoNodo.Posicion.X;
                             newNode.Y = nuevoNodo.Posicion.Y;
                             newNode.Name = frmVentanaMultiple.txtValor.Text;
@@ -150,7 +149,6 @@ namespace Proyecto
                     }
                     var_control = 0; //variable de control con valor 0
                     nuevoNodo = null; //nuevoNodo se setea con null
-                    newNode = null; //newNode se setea con null
                     this.Cursor = Cursors.Default; //Se cambia el cursor al default
                     pbCanvas.Refresh(); //Se refresca el canvas
                 }
@@ -232,7 +230,10 @@ namespace Proyecto
                                 miArista.NodoSalida = NodoOrigen.Valor;
                                 miArista.NodoLlegada = NodoDestino.Valor;
                                 miArista.Value = distancia;
+                                miGrafo.Edges.Add(miArista);
+                                IlcSet.Graphs.Where(v => v.Id == miGrafo.Id).FirstOrDefault().Edges.Add(miArista);
                                 NodoOrigen.ListaAdyacencia.Find(v => v.nDestino == NodoDestino).peso = distancia; //Se busca la arista recien creada y se le aisigna el peso anterior
+                                IlcSet.SaveChanges();
                             }
                         }
 
@@ -249,9 +250,6 @@ namespace Proyecto
         {
             this.Cursor = Cursors.Cross;
             nuevoNodo = new CVertice();
-            newNode = new Node();
-            newNode.Graph = miGrafo;
-            newNode.GraphId = miGrafo.Id;
             var_control = 2; // recordemos que es usado para indicar el estado en la pizarra: 0 ->
             // sin accion, 1 -> Dibujando arco, 2 -> Nuevo vértice
         }

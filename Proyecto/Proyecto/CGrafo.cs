@@ -35,13 +35,13 @@ namespace Proyecto
 
         // Crea la arista a partir de los nodos de origen y de destino
 
-        public bool AgregarArco(CVertice origen, CVertice nDestino)
+        public bool AgregarArco(CVertice origen, CVertice nDestino, int distancia = 1)
         {
             if (DiGrafo)
             {
                 if (origen.ListaAdyacencia.Find(v => v.nDestino == nDestino) == null)
                 {
-                    origen.ListaAdyacencia.Add(new CArco(nDestino));
+                    origen.ListaAdyacencia.Add(new CArco(nDestino, distancia));
                     return true;
                 }
                 return false;
@@ -51,8 +51,8 @@ namespace Proyecto
                 if ((origen.ListaAdyacencia.Find(v => v.nDestino == nDestino) == null) &&
                     (nDestino.ListaAdyacencia.Find(v => v.nDestino == origen) == null))
                 {
-                    origen.ListaAdyacencia.Add(new CArco(nDestino));
-                    nDestino.ListaAdyacencia.Add(new CArco(origen));
+                    origen.ListaAdyacencia.Add(new CArco(nDestino, distancia));
+                    nDestino.ListaAdyacencia.Add(new CArco(origen, distancia));
                     return true;
                 }
                 return false;
