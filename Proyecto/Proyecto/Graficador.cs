@@ -68,7 +68,7 @@ namespace Proyecto
             else
             {
                 miGrafo = new Graph();
-                miGrafo.Tipo = "Inactivo";
+                miGrafo.Tipo = "Activo";
                 grafo = new CGrafo();
                 IlcSet.Graphs.Add(miGrafo);
                 IlcSet.SaveChanges();

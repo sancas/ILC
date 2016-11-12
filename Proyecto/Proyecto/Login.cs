@@ -24,8 +24,32 @@ namespace Proyecto
         {
             using (var conexion = new ILC())
             {
+
                 string hashedPassword = Operaciones.CalculateMD5Hash(this.txtPassword.Text);
                 User AuthUser = conexion.Users.Where(u => u.Email == this.txtEmail.Text && u.Password == hashedPassword).FirstOrDefault();
+                if (conexion.Roles.Count() == 0)
+                {
+                    Role Rol = new Role();
+                    Rol.Name = "Admin";
+                    conexion.Roles.Add(Rol);
+                    conexion.SaveChanges();
+                    Rol = new Role();
+                    Rol.Name = "Operator";
+                    conexion.Roles.Add(Rol);
+                    conexion.SaveChanges();
+                }
+                if (conexion.Users.Count() == 0)
+                {
+                    User Admin = new User();
+                    Admin.Name = "Admin";
+                    Admin.Gender = "M";
+                    Admin.Email = "Admin";
+                    Admin.Password = Operaciones.CalculateMD5Hash("123");
+                    Admin.RoleId = 1;
+                    conexion.Users.Add(Admin);
+                    conexion.SaveChanges();
+                    AuthUser = conexion.Users.Where(u => u.Email == this.txtEmail.Text && u.Password == hashedPassword).FirstOrDefault();
+                }
                 if (AuthUser != null)
                 {
                     this.Hide();
@@ -45,7 +69,7 @@ namespace Proyecto
                 }
                 else
                     MetroMessageBox.Show(this, "Verifique sus datos de inicio de sesion", "Login error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                this.txtEmail.Focus();
+                    this.txtEmail.Focus();
             }
         }
 
