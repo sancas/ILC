@@ -262,14 +262,19 @@ namespace Proyecto
 
         private void lnkActivar_Click(object sender, EventArgs e)
         {
-            activoMetroToggle.Checked = true;
-            Graph miGrafo = (Graph)graphBindingSource.Current;
-            foreach (Graph Grafo in IlcSet.Graphs)
+            if (!activoMetroToggle.Checked)
             {
-                Grafo.Tipo = "Inactivo";
+                this.Cursor = Cursors.WaitCursor;
+                Graph miGrafo = (Graph)graphBindingSource.Current;
+                foreach (Graph Grafo in IlcSet.Graphs)
+                {
+                    Grafo.Tipo = "Inactivo";
+                }
+                IlcSet.Graphs.Where(v => v.Id == miGrafo.Id).FirstOrDefault().Tipo = "Activo";
+                IlcSet.SaveChanges();
+                activoMetroToggle.Checked = true;
+                this.Cursor = Cursors.Default;
             }
-            IlcSet.Graphs.Where(v => v.Id == miGrafo.Id).FirstOrDefault().Tipo = "Activo";
-            IlcSet.SaveChanges();
         }
     }
 }

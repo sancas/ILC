@@ -36,6 +36,46 @@ namespace Proyecto
             InitializeComponent();
         }
 
+        public Graficador(User AuthUser, Graph miGrafo)
+        {
+            this.AuthUser = AuthUser;
+            InitializeComponent();
+            nuevoNodo = null;
+            var_control = 0;
+            frmVentanaMultiple = null;
+            tiempo = 100;
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
+            IlcSet = new ILC();
+            if (miGrafo != null)
+            {
+                grafo = new CGrafo();
+                if (miGrafo.Background != null)
+                    pbCanvas.BackgroundImage = Operaciones.byteArrayToImage(miGrafo.Background);
+                if (miGrafo.NodeIcon != null)
+                    grafo.NodoIcon = Operaciones.byteArrayToImage(miGrafo.NodeIcon);
+                foreach (Node miNodo in miGrafo.Nodes)
+                {
+                    nuevoNodo = new CVertice(miNodo.Name);
+                    nuevoNodo.Posicion = new Point(miNodo.X, miNodo.Y);
+                    grafo.AgregarVertice(nuevoNodo);
+                }
+                foreach (Edge miArista in miGrafo.Edges)
+                {
+                    grafo.AgregarArco(grafo.BuscarVertice(miArista.NodoSalida), grafo.BuscarVertice(miArista.NodoLlegada), miArista.Value);
+                }
+                nuevoNodo = null;
+                pbCanvas.Refresh();
+            }
+            else
+            {
+                miGrafo = new Graph();
+                miGrafo.Tipo = "Activo";
+                grafo = new CGrafo();
+                IlcSet.Graphs.Add(miGrafo);
+                IlcSet.SaveChanges();
+            }
+        }
+
         public Graficador(User AuthUser)
         {
             this.AuthUser = AuthUser;
