@@ -204,5 +204,72 @@ namespace Proyecto
                 IlcSet.SaveChanges();
             }
         }
+
+        private void btnCambiarBackground_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog changeBackground = new OpenFileDialog();
+            changeBackground.ShowDialog(this);
+            pbGraphBackground.Image = Image.FromFile(changeBackground.FileName);
+            Graph miGrafo = (Graph)graphBindingSource.Current;
+            IlcSet.Graphs.Where(v => v.Id == miGrafo.Id).FirstOrDefault().Background = System.IO.File.ReadAllBytes(changeBackground.FileName);
+            IlcSet.SaveChanges();
+        }
+
+        private void GraphTabPage_Enter(object sender, EventArgs e)
+        {
+            this.graphBindingSource.DataSource = IlcSet.Graphs.ToList();
+        }
+
+        private void graphBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+            Graph miGrafo = (Graph)graphBindingSource.Current;
+            if (miGrafo.Background != null)
+                pbGraphBackground.Image = Operaciones.byteArrayToImage(miGrafo.Background);
+            if (miGrafo.NodeIcon != null)
+                pbNodo.Image = Operaciones.byteArrayToImage(miGrafo.NodeIcon);
+            if (miGrafo.Tipo == "Activo")
+                activoMetroToggle.Checked = true;
+            else
+                activoMetroToggle.Checked = false;
+        }
+
+        private void btnCambiarNodo_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog changeNode = new OpenFileDialog();
+            changeNode.ShowDialog(this);
+            pbNodo.Image = Image.FromFile(changeNode.FileName);
+            Graph miGrafo = (Graph)graphBindingSource.Current;
+            IlcSet.Graphs.Where(v => v.Id == miGrafo.Id).FirstOrDefault().NodeIcon = System.IO.File.ReadAllBytes(changeNode.FileName);
+            IlcSet.SaveChanges();
+        }
+
+        private void bindingNavigatorAddNewGraph_Click(object sender, EventArgs e)
+        {
+            Graph miGrafo = new Graph();
+            miGrafo.Tipo = "Inactivo";
+            IlcSet.Graphs.Add(miGrafo);
+            IlcSet.SaveChanges();
+            this.graphBindingSource.DataSource = IlcSet.Graphs.ToList();
+        }
+
+        private void toolStripDeleteGraph_Click(object sender, EventArgs e)
+        {
+            Graph miGrafo = (Graph)graphBindingSource.Current;
+            IlcSet.Graphs.Remove(IlcSet.Graphs.Where(v => v.Id == miGrafo.Id).FirstOrDefault());
+            IlcSet.SaveChanges();
+            this.graphBindingSource.DataSource = IlcSet.Graphs.ToList();
+        }
+
+        private void lnkActivar_Click(object sender, EventArgs e)
+        {
+            activoMetroToggle.Checked = true;
+            Graph miGrafo = (Graph)graphBindingSource.Current;
+            foreach (Graph Grafo in IlcSet.Graphs)
+            {
+                Grafo.Tipo = "Inactivo";
+            }
+            IlcSet.Graphs.Where(v => v.Id == miGrafo.Id).FirstOrDefault().Tipo = "Activo";
+            IlcSet.SaveChanges();
+        }
     }
 }

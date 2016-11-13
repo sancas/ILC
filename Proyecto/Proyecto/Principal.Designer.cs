@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PrincipalStyleManager = new MetroFramework.Components.MetroStyleManager(this.components);
             this.TopPanel = new MetroFramework.Controls.MetroPanel();
             this.TopUserInfoPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -91,11 +91,32 @@
             this.TravelProblemsTabPage = new MetroFramework.Controls.MetroTabPage();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.GraphTabPage = new MetroFramework.Controls.MetroTabPage();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.btnCambiarNodo = new MetroFramework.Controls.MetroButton();
+            this.btnCambiarBackground = new MetroFramework.Controls.MetroButton();
+            this.lblNodoImage = new MetroFramework.Controls.MetroLabel();
+            this.pbNodo = new System.Windows.Forms.PictureBox();
+            this.lblGraphActivo = new MetroFramework.Controls.MetroLabel();
+            this.activoMetroToggle = new MetroFramework.Controls.MetroToggle();
+            this.lblGraphBackground = new MetroFramework.Controls.MetroLabel();
+            this.pbGraphBackground = new System.Windows.Forms.PictureBox();
+            this.graphBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.graphBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewGraph = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem2 = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorMoveFirstGraph = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousGraph = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem2 = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextGraph = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastGraph = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripDeleteGraph = new System.Windows.Forms.ToolStripButton();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roleIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lnkActivar = new MetroFramework.Controls.MetroLink();
             ((System.ComponentModel.ISupportInitialize)(this.PrincipalStyleManager)).BeginInit();
             this.TopPanel.SuspendLayout();
             this.TopUserInfoPanel.SuspendLayout();
@@ -115,6 +136,11 @@
             this.roleBindingNavigator.SuspendLayout();
             this.TravelProblemsTabPage.SuspendLayout();
             this.GraphTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNodo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGraphBackground)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.graphBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.graphBindingNavigator)).BeginInit();
+            this.graphBindingNavigator.SuspendLayout();
             this.SuspendLayout();
             // 
             // PrincipalStyleManager
@@ -306,7 +332,7 @@
             this.MainTabControl.ItemSize = new System.Drawing.Size(54, 20);
             this.MainTabControl.Location = new System.Drawing.Point(103, 3);
             this.MainTabControl.Name = "MainTabControl";
-            this.MainTabControl.SelectedIndex = 0;
+            this.MainTabControl.SelectedIndex = 3;
             this.MainTabControl.Size = new System.Drawing.Size(514, 360);
             this.MainTabControl.TabIndex = 4;
             this.MainTabControl.UseSelectable = true;
@@ -342,14 +368,14 @@
             this.userDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.userDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.userDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.userDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.userDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.userDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.userDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -358,14 +384,14 @@
             this.emailDataGridViewTextBoxColumn,
             this.RoleId});
             this.userDataGridView.DataSource = this.userBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.userDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.userDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
             this.userDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userDataGridView.EnableHeadersVisualStyles = false;
             this.userDataGridView.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -373,14 +399,14 @@
             this.userDataGridView.Location = new System.Drawing.Point(0, 25);
             this.userDataGridView.Name = "userDataGridView";
             this.userDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.userDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.userDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.userDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.userDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.userDataGridView.Size = new System.Drawing.Size(506, 307);
@@ -585,27 +611,27 @@
             this.roleDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.roleDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.roleDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.roleDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.roleDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.roleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.roleDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.nameDataGridViewTextBoxColumn1});
             this.roleDataGridView.DataSource = this.roleBindingSource;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.roleDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.roleDataGridView.DefaultCellStyle = dataGridViewCellStyle11;
             this.roleDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.roleDataGridView.EnableHeadersVisualStyles = false;
             this.roleDataGridView.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -613,14 +639,14 @@
             this.roleDataGridView.Location = new System.Drawing.Point(0, 25);
             this.roleDataGridView.Name = "roleDataGridView";
             this.roleDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.roleDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.roleDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.roleDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.roleDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.roleDataGridView.Size = new System.Drawing.Size(506, 307);
@@ -795,7 +821,18 @@
             // 
             // GraphTabPage
             // 
-            this.GraphTabPage.Controls.Add(this.metroLabel4);
+            this.GraphTabPage.AutoScroll = true;
+            this.GraphTabPage.Controls.Add(this.lnkActivar);
+            this.GraphTabPage.Controls.Add(this.btnCambiarNodo);
+            this.GraphTabPage.Controls.Add(this.btnCambiarBackground);
+            this.GraphTabPage.Controls.Add(this.lblNodoImage);
+            this.GraphTabPage.Controls.Add(this.pbNodo);
+            this.GraphTabPage.Controls.Add(this.lblGraphActivo);
+            this.GraphTabPage.Controls.Add(this.activoMetroToggle);
+            this.GraphTabPage.Controls.Add(this.lblGraphBackground);
+            this.GraphTabPage.Controls.Add(this.pbGraphBackground);
+            this.GraphTabPage.Controls.Add(this.graphBindingNavigator);
+            this.GraphTabPage.HorizontalScrollbar = true;
             this.GraphTabPage.HorizontalScrollbarBarColor = true;
             this.GraphTabPage.HorizontalScrollbarHighlightOnWheel = false;
             this.GraphTabPage.HorizontalScrollbarSize = 10;
@@ -804,18 +841,222 @@
             this.GraphTabPage.Size = new System.Drawing.Size(506, 332);
             this.GraphTabPage.TabIndex = 3;
             this.GraphTabPage.Text = "Graph";
+            this.GraphTabPage.VerticalScrollbar = true;
             this.GraphTabPage.VerticalScrollbarBarColor = true;
             this.GraphTabPage.VerticalScrollbarHighlightOnWheel = false;
             this.GraphTabPage.VerticalScrollbarSize = 10;
+            this.GraphTabPage.Enter += new System.EventHandler(this.GraphTabPage_Enter);
             // 
-            // metroLabel4
+            // btnCambiarNodo
             // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(185, 166);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(53, 19);
-            this.metroLabel4.TabIndex = 2;
-            this.metroLabel4.Text = "GRAFO";
+            this.btnCambiarNodo.Highlight = true;
+            this.btnCambiarNodo.Location = new System.Drawing.Point(319, 141);
+            this.btnCambiarNodo.Name = "btnCambiarNodo";
+            this.btnCambiarNodo.Size = new System.Drawing.Size(118, 23);
+            this.btnCambiarNodo.TabIndex = 11;
+            this.btnCambiarNodo.Text = "Cambiar...";
+            this.btnCambiarNodo.UseSelectable = true;
+            this.btnCambiarNodo.UseStyleColors = true;
+            this.btnCambiarNodo.Click += new System.EventHandler(this.btnCambiarNodo_Click);
+            // 
+            // btnCambiarBackground
+            // 
+            this.btnCambiarBackground.Highlight = true;
+            this.btnCambiarBackground.Location = new System.Drawing.Point(116, 291);
+            this.btnCambiarBackground.Name = "btnCambiarBackground";
+            this.btnCambiarBackground.Size = new System.Drawing.Size(185, 23);
+            this.btnCambiarBackground.TabIndex = 10;
+            this.btnCambiarBackground.Text = "Cambiar...";
+            this.btnCambiarBackground.UseSelectable = true;
+            this.btnCambiarBackground.UseStyleColors = true;
+            this.btnCambiarBackground.Click += new System.EventHandler(this.btnCambiarBackground_Click);
+            // 
+            // lblNodoImage
+            // 
+            this.lblNodoImage.AutoSize = true;
+            this.lblNodoImage.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lblNodoImage.Location = new System.Drawing.Point(319, 60);
+            this.lblNodoImage.Name = "lblNodoImage";
+            this.lblNodoImage.Size = new System.Drawing.Size(118, 25);
+            this.lblNodoImage.TabIndex = 9;
+            this.lblNodoImage.Text = "Imagen nodo:";
+            this.lblNodoImage.UseStyleColors = true;
+            // 
+            // pbNodo
+            // 
+            this.pbNodo.Location = new System.Drawing.Point(319, 88);
+            this.pbNodo.Name = "pbNodo";
+            this.pbNodo.Size = new System.Drawing.Size(54, 47);
+            this.pbNodo.TabIndex = 8;
+            this.pbNodo.TabStop = false;
+            // 
+            // lblGraphActivo
+            // 
+            this.lblGraphActivo.AutoSize = true;
+            this.lblGraphActivo.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lblGraphActivo.Location = new System.Drawing.Point(319, 170);
+            this.lblGraphActivo.Name = "lblGraphActivo";
+            this.lblGraphActivo.Size = new System.Drawing.Size(103, 25);
+            this.lblGraphActivo.TabIndex = 7;
+            this.lblGraphActivo.Text = "Grafo activo";
+            this.lblGraphActivo.UseStyleColors = true;
+            // 
+            // activoMetroToggle
+            // 
+            this.activoMetroToggle.AutoSize = true;
+            this.activoMetroToggle.Enabled = false;
+            this.activoMetroToggle.FontSize = MetroFramework.MetroLinkSize.Medium;
+            this.activoMetroToggle.Location = new System.Drawing.Point(319, 198);
+            this.activoMetroToggle.Name = "activoMetroToggle";
+            this.activoMetroToggle.Size = new System.Drawing.Size(80, 17);
+            this.activoMetroToggle.TabIndex = 6;
+            this.activoMetroToggle.Text = "Off";
+            this.activoMetroToggle.UseSelectable = true;
+            this.activoMetroToggle.UseStyleColors = true;
+            // 
+            // lblGraphBackground
+            // 
+            this.lblGraphBackground.AutoSize = true;
+            this.lblGraphBackground.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lblGraphBackground.Location = new System.Drawing.Point(3, 64);
+            this.lblGraphBackground.Name = "lblGraphBackground";
+            this.lblGraphBackground.Size = new System.Drawing.Size(107, 25);
+            this.lblGraphBackground.TabIndex = 4;
+            this.lblGraphBackground.Text = "Background:";
+            this.lblGraphBackground.UseStyleColors = true;
+            // 
+            // pbGraphBackground
+            // 
+            this.pbGraphBackground.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.graphBindingSource, "Background", true));
+            this.pbGraphBackground.Location = new System.Drawing.Point(116, 64);
+            this.pbGraphBackground.Name = "pbGraphBackground";
+            this.pbGraphBackground.Size = new System.Drawing.Size(185, 221);
+            this.pbGraphBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbGraphBackground.TabIndex = 3;
+            this.pbGraphBackground.TabStop = false;
+            // 
+            // graphBindingSource
+            // 
+            this.graphBindingSource.DataSource = typeof(Proyecto.Data.Graph);
+            this.graphBindingSource.CurrentChanged += new System.EventHandler(this.graphBindingSource_CurrentChanged);
+            // 
+            // graphBindingNavigator
+            // 
+            this.graphBindingNavigator.AddNewItem = this.bindingNavigatorAddNewGraph;
+            this.graphBindingNavigator.BindingSource = this.graphBindingSource;
+            this.graphBindingNavigator.CountItem = this.bindingNavigatorCountItem2;
+            this.graphBindingNavigator.DeleteItem = null;
+            this.graphBindingNavigator.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.graphBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorMoveFirstGraph,
+            this.bindingNavigatorMovePreviousGraph,
+            this.bindingNavigatorSeparator6,
+            this.bindingNavigatorPositionItem2,
+            this.bindingNavigatorCountItem2,
+            this.bindingNavigatorSeparator7,
+            this.bindingNavigatorMoveNextGraph,
+            this.bindingNavigatorMoveLastGraph,
+            this.bindingNavigatorSeparator8,
+            this.bindingNavigatorAddNewGraph,
+            this.toolStripDeleteGraph});
+            this.graphBindingNavigator.Location = new System.Drawing.Point(0, 0);
+            this.graphBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstGraph;
+            this.graphBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastGraph;
+            this.graphBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextGraph;
+            this.graphBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousGraph;
+            this.graphBindingNavigator.Name = "graphBindingNavigator";
+            this.graphBindingNavigator.PositionItem = this.bindingNavigatorPositionItem2;
+            this.graphBindingNavigator.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.graphBindingNavigator.Size = new System.Drawing.Size(506, 25);
+            this.graphBindingNavigator.TabIndex = 2;
+            this.graphBindingNavigator.Text = "graphBindingNavigator";
+            // 
+            // bindingNavigatorAddNewGraph
+            // 
+            this.bindingNavigatorAddNewGraph.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewGraph.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewGraph.Image")));
+            this.bindingNavigatorAddNewGraph.Name = "bindingNavigatorAddNewGraph";
+            this.bindingNavigatorAddNewGraph.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewGraph.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewGraph.Text = "Agregar nuevo";
+            this.bindingNavigatorAddNewGraph.Click += new System.EventHandler(this.bindingNavigatorAddNewGraph_Click);
+            // 
+            // bindingNavigatorCountItem2
+            // 
+            this.bindingNavigatorCountItem2.Name = "bindingNavigatorCountItem2";
+            this.bindingNavigatorCountItem2.Size = new System.Drawing.Size(37, 22);
+            this.bindingNavigatorCountItem2.Text = "de {0}";
+            this.bindingNavigatorCountItem2.ToolTipText = "Número total de elementos";
+            // 
+            // bindingNavigatorMoveFirstGraph
+            // 
+            this.bindingNavigatorMoveFirstGraph.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstGraph.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstGraph.Image")));
+            this.bindingNavigatorMoveFirstGraph.Name = "bindingNavigatorMoveFirstGraph";
+            this.bindingNavigatorMoveFirstGraph.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstGraph.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveFirstGraph.Text = "Mover primero";
+            // 
+            // bindingNavigatorMovePreviousGraph
+            // 
+            this.bindingNavigatorMovePreviousGraph.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousGraph.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousGraph.Image")));
+            this.bindingNavigatorMovePreviousGraph.Name = "bindingNavigatorMovePreviousGraph";
+            this.bindingNavigatorMovePreviousGraph.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousGraph.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMovePreviousGraph.Text = "Mover anterior";
+            // 
+            // bindingNavigatorSeparator6
+            // 
+            this.bindingNavigatorSeparator6.Name = "bindingNavigatorSeparator6";
+            this.bindingNavigatorSeparator6.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorPositionItem2
+            // 
+            this.bindingNavigatorPositionItem2.AccessibleName = "Posición";
+            this.bindingNavigatorPositionItem2.AutoSize = false;
+            this.bindingNavigatorPositionItem2.Name = "bindingNavigatorPositionItem2";
+            this.bindingNavigatorPositionItem2.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem2.Text = "0";
+            this.bindingNavigatorPositionItem2.ToolTipText = "Posición actual";
+            // 
+            // bindingNavigatorSeparator7
+            // 
+            this.bindingNavigatorSeparator7.Name = "bindingNavigatorSeparator7";
+            this.bindingNavigatorSeparator7.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorMoveNextGraph
+            // 
+            this.bindingNavigatorMoveNextGraph.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextGraph.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextGraph.Image")));
+            this.bindingNavigatorMoveNextGraph.Name = "bindingNavigatorMoveNextGraph";
+            this.bindingNavigatorMoveNextGraph.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextGraph.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveNextGraph.Text = "Mover siguiente";
+            // 
+            // bindingNavigatorMoveLastGraph
+            // 
+            this.bindingNavigatorMoveLastGraph.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastGraph.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastGraph.Image")));
+            this.bindingNavigatorMoveLastGraph.Name = "bindingNavigatorMoveLastGraph";
+            this.bindingNavigatorMoveLastGraph.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastGraph.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveLastGraph.Text = "Mover último";
+            // 
+            // bindingNavigatorSeparator8
+            // 
+            this.bindingNavigatorSeparator8.Name = "bindingNavigatorSeparator8";
+            this.bindingNavigatorSeparator8.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripDeleteGraph
+            // 
+            this.toolStripDeleteGraph.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripDeleteGraph.Image = global::Proyecto.Properties.Resources.Cancel;
+            this.toolStripDeleteGraph.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDeleteGraph.Name = "toolStripDeleteGraph";
+            this.toolStripDeleteGraph.Size = new System.Drawing.Size(23, 22);
+            this.toolStripDeleteGraph.Text = "toolStripButton1";
+            this.toolStripDeleteGraph.Click += new System.EventHandler(this.toolStripDeleteGraph_Click);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -844,6 +1085,17 @@
             this.roleDataGridViewTextBoxColumn.HeaderText = "Role";
             this.roleDataGridViewTextBoxColumn.Name = "roleDataGridViewTextBoxColumn";
             this.roleDataGridViewTextBoxColumn.Width = 53;
+            // 
+            // lnkActivar
+            // 
+            this.lnkActivar.Location = new System.Drawing.Point(319, 221);
+            this.lnkActivar.Name = "lnkActivar";
+            this.lnkActivar.Size = new System.Drawing.Size(78, 23);
+            this.lnkActivar.TabIndex = 12;
+            this.lnkActivar.Text = "Activar";
+            this.lnkActivar.UseSelectable = true;
+            this.lnkActivar.UseStyleColors = true;
+            this.lnkActivar.Click += new System.EventHandler(this.lnkActivar_Click);
             // 
             // Principal
             // 
@@ -887,6 +1139,12 @@
             this.TravelProblemsTabPage.PerformLayout();
             this.GraphTabPage.ResumeLayout(false);
             this.GraphTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNodo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGraphBackground)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.graphBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.graphBindingNavigator)).EndInit();
+            this.graphBindingNavigator.ResumeLayout(false);
+            this.graphBindingNavigator.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -909,7 +1167,6 @@
         private MetroFramework.Controls.MetroTabPage RolesTabPage;
         private MetroFramework.Controls.MetroTabPage TravelProblemsTabPage;
         private MetroFramework.Controls.MetroTabPage GraphTabPage;
-        private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroGrid userDataGridView;
         private System.Windows.Forms.BindingSource userBindingSource;
@@ -952,5 +1209,27 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn RoleId;
+        private System.Windows.Forms.BindingNavigator graphBindingNavigator;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewGraph;
+        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem2;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstGraph;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousGraph;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator6;
+        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem2;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator7;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextGraph;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastGraph;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator8;
+        private System.Windows.Forms.BindingSource graphBindingSource;
+        private MetroFramework.Controls.MetroLabel lblGraphBackground;
+        private System.Windows.Forms.PictureBox pbGraphBackground;
+        private MetroFramework.Controls.MetroLabel lblGraphActivo;
+        private MetroFramework.Controls.MetroToggle activoMetroToggle;
+        private MetroFramework.Controls.MetroLabel lblNodoImage;
+        private System.Windows.Forms.PictureBox pbNodo;
+        private MetroFramework.Controls.MetroButton btnCambiarBackground;
+        private MetroFramework.Controls.MetroButton btnCambiarNodo;
+        private System.Windows.Forms.ToolStripButton toolStripDeleteGraph;
+        private MetroFramework.Controls.MetroLink lnkActivar;
     }
 }

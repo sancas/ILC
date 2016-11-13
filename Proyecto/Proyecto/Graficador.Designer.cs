@@ -107,6 +107,7 @@
             // 
             // pbCanvas
             // 
+            this.pbCanvas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbCanvas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbCanvas.Location = new System.Drawing.Point(20, 114);
             this.pbCanvas.Name = "pbCanvas";
@@ -127,12 +128,12 @@
             this.CMSMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoVerticeToolStripMenuItem});
             this.CMSMenu.Name = "CMSMenu";
-            this.CMSMenu.Size = new System.Drawing.Size(153, 48);
+            this.CMSMenu.Size = new System.Drawing.Size(148, 26);
             // 
             // nuevoVerticeToolStripMenuItem
             // 
             this.nuevoVerticeToolStripMenuItem.Name = "nuevoVerticeToolStripMenuItem";
-            this.nuevoVerticeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nuevoVerticeToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.nuevoVerticeToolStripMenuItem.Text = "Nuevo Vertice";
             this.nuevoVerticeToolStripMenuItem.Click += new System.EventHandler(this.nuevoVerticeToolStripMenuItem_Click);
             // 
@@ -144,7 +145,9 @@
             this.Controls.Add(this.pbCanvas);
             this.Controls.Add(this.TopPanel);
             this.Name = "Graficador";
+            this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Graficador";
+            this.Theme = MetroFramework.MetroThemeStyle.Default;
             this.Load += new System.EventHandler(this.Graficador_Load);
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();

@@ -50,8 +50,10 @@ namespace Proyecto
             if (miGrafo != null)
             {
                 grafo = new CGrafo();
-                if (pbCanvas.BackgroundImage != null)
-                    pbCanvas.BackgroundImage = (Bitmap)((new ImageConverter()).ConvertFrom(miGrafo.Background));
+                if (miGrafo.Background != null)
+                    pbCanvas.BackgroundImage = Operaciones.byteArrayToImage(miGrafo.Background);
+                if (miGrafo.NodeIcon != null)
+                    grafo.NodoIcon = Operaciones.byteArrayToImage(miGrafo.NodeIcon);
                 foreach (Node miNodo in miGrafo.Nodes)
                 {
                     nuevoNodo = new CVertice(miNodo.Name);
@@ -143,7 +145,7 @@ namespace Proyecto
                     }
                     else //Si no fue bien
                     {
-                        grafo.ELiminarNodo(frmVentanaMultiple.txtValor.Text);  //Se elimina el nodo recien creado
+                        grafo.ELiminarNodo(string.Empty);  //Se elimina el nodo recien creado
                         grafo.RestablecerGrafo(pbCanvas.CreateGraphics()); //Se reestablece el grafo
                         pbCanvas.Refresh(); //Se refresca el canvas
                     }
@@ -193,7 +195,7 @@ namespace Proyecto
                             posY = pbCanvas.Size.Height - nuevoNodo.Dimensiones.Width / 2; //La nueva posicionY es igual al tamaño height del cambas menos la dimension width del nodo entre dos
                         nuevoNodo.Posicion = new Point(posX, posY); //La posicion del nuevo nodo es igual a un punto (posicionX, posicionY)
                         pbCanvas.Refresh(); //Se refresca el canvas
-                        nuevoNodo.DibujarVertice(pbCanvas.CreateGraphics()); //Se dibuja el nuevo vertice
+                        nuevoNodo.DibujarVertice(pbCanvas.CreateGraphics(), grafo.NodoIcon); //Se dibuja el nuevo vertice
                     }
                     break;
                 case 1: // Dibujar arco

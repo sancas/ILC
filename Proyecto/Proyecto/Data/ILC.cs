@@ -23,12 +23,12 @@ namespace Proyecto.Data
             modelBuilder.Entity<Graph>()
                 .HasMany(e => e.Edges)
                 .WithRequired(e => e.Graph)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<Graph>()
                 .HasMany(e => e.Nodes)
                 .WithRequired(e => e.Graph)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<Role>()
                 .HasMany(e => e.Users)

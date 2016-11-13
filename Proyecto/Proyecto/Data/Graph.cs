@@ -21,9 +21,9 @@ namespace Proyecto.Data
         [Required]
         public string Tipo { get; set; }
 
-        public byte Background { get; set; }
+        public byte[] Background { get; set; }
 
-        public byte NodeIcon { get; set; }
+        public byte[] NodeIcon { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Edge> Edges { get; set; }

@@ -65,30 +65,37 @@ namespace Proyecto
             this.ListaAdyacencia = new List < CArco > ();
             this.Color = Color.LightSeaGreen; // Definimos el color del nodo
             this.Dimensiones = new Size(size, size); // Definimos las dimensiones del circulo
-            this.FontColor = Color.White; // Color de la fuente
+            this.FontColor = Color.Black; // Color de la fuente
         }
         public CVertice(): this("") {} // Constructor por defecto
 
         // Método para dibujar el nodo
-        public void DibujarVertice(Graphics g) {
-                SolidBrush b = new SolidBrush(this.color_nodo);
+        public void DibujarVertice(Graphics g, Image Imagen = null)
+        {
+            SolidBrush b = new SolidBrush(this.color_nodo);
 
-                // Definimos donde dibujaremos el nodo
-                Rectangle areaNodo = new Rectangle(this._posicion.X - radio, this._posicion.Y - radio,
-                    this.dimensiones.Width, this.dimensiones.Height);
+            // Definimos donde dibujaremos el nodo
+            Rectangle areaNodo = new Rectangle(this._posicion.X - radio, this._posicion.Y - radio,
+                this.dimensiones.Width, this.dimensiones.Height);
+            if (Imagen != null)
+                g.DrawImage(Imagen, areaNodo);
+            else
                 g.FillEllipse(b, areaNodo);
 
-                g.DrawString(this.Valor, new Font("Arial", 14), new SolidBrush(color_fuente),
-                    this._posicion.X, this._posicion.Y,
-                    new StringFormat() {
-                        Alignment = StringAlignment.Center,
-                            LineAlignment = StringAlignment.Center
-                    }
-                );
+            g.DrawString(this.Valor, new Font("Arial", 14, FontStyle.Bold), new SolidBrush(color_fuente),
+                this._posicion.X, this._posicion.Y,
+                new StringFormat() {
+                    Alignment = StringAlignment.Center,
+                        LineAlignment = StringAlignment.Center
+                }
+            );
+            if (Imagen != null)
+                g.DrawRectangle(new Pen(Brushes.Black, (float)1.0), areaNodo);
+            else
                 g.DrawEllipse(new Pen(Brushes.Black, (float) 1.0), areaNodo);
-                b.Dispose();
-            }
-            // Método para dibujar los arcos
+            b.Dispose();
+        }
+        // Método para dibujar los arcos
         public void DibujarArco(Graphics g, bool DiGrafo)
         {
             float distancia;

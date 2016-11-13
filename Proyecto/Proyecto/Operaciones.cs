@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Proyecto.Data;
 using System.Security.Cryptography;
+using System.IO;
+using System.Drawing;
 
 namespace Proyecto
 {
@@ -64,6 +66,13 @@ namespace Proyecto
                 sb.Append(hash[i].ToString("X2"));
             }
             return sb.ToString();
+        }
+
+        public static Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            MemoryStream ms = new MemoryStream(byteArrayIn);
+            Image returnImage = Image.FromStream(ms);
+            return returnImage;
         }
     }
 }

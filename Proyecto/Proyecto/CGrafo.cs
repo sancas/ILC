@@ -14,11 +14,13 @@ namespace Proyecto
     {
         public List<CVertice> nodos; // Lista de nodos del grafo
         public bool DiGrafo;
+        public Image NodoIcon;
 
         public CGrafo(bool DiGrafo = true) // Constructor
         {
             nodos = new List<CVertice>();
             this.DiGrafo = DiGrafo;
+            this.NodoIcon = null;
         }
 
         //Agrega un nodo a la lista de nodos del grafo
@@ -88,7 +90,7 @@ namespace Proyecto
 
 
             foreach (CVertice nodo in nodos)
-                nodo.DibujarVertice(g);
+                nodo.DibujarVertice(g, NodoIcon);
         }
 
         // Método para detectar si se ha posicionado sobre algún nodo y lo devuelve
