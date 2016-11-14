@@ -282,7 +282,6 @@ namespace Proyecto
         {
             if (!activoMetroToggle.Checked)
             {
-                this.Cursor = Cursors.WaitCursor;
                 Graph miGrafo = (Graph)graphBindingSource.Current;
                 foreach (Graph Grafo in IlcSet.Graphs)
                 {
@@ -291,7 +290,6 @@ namespace Proyecto
                 IlcSet.Graphs.Where(v => v.Id == miGrafo.Id).FirstOrDefault().Tipo = "Activo";
                 IlcSet.SaveChanges();
                 activoMetroToggle.Checked = true;
-                this.Cursor = Cursors.Default;
             }
         }
 
