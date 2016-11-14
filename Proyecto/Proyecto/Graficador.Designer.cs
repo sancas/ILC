@@ -139,7 +139,7 @@
             this.administrarToolStripMenuItem,
             this.reestablecerGrafoToolStripMenuItem});
             this.CMSMenu.Name = "CMSMenu";
-            this.CMSMenu.Size = new System.Drawing.Size(172, 136);
+            this.CMSMenu.Size = new System.Drawing.Size(172, 158);
             // 
             // verticeToolStripMenuItem
             // 
@@ -247,6 +247,7 @@
             this.imprimirReporteToolStripMenuItem1.Name = "imprimirReporteToolStripMenuItem1";
             this.imprimirReporteToolStripMenuItem1.Size = new System.Drawing.Size(164, 22);
             this.imprimirReporteToolStripMenuItem1.Text = "Imprimir Reporte";
+            this.imprimirReporteToolStripMenuItem1.Click += new System.EventHandler(this.imprimirReporteToolStripMenuItem1_Click);
             // 
             // reestablecerGrafoToolStripMenuItem
             // 

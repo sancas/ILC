@@ -240,6 +240,8 @@ namespace Proyecto
                         frmNuevoArco.ShowDialog(this);
                         if (frmNuevoArco.DialogResult == DialogResult.OK) //Si todo fue bien
                         {
+                            NodoOrigen = grafo.BuscarVertice(frmNuevoArco.cmbNodoInicial.SelectedItem.ToString());
+                            NodoDestino = grafo.BuscarVertice(frmNuevoArco.cmbNodoFinal.SelectedItem.ToString());
                             if (grafo.AgregarArco(NodoOrigen, NodoDestino)) //Se procede a crear la arista
                             {
                                 int distancia = int.Parse(frmNuevoArco.txtPeso.Text); //Se guarda el peso de la arista
@@ -541,6 +543,44 @@ namespace Proyecto
             {
                 MessageBox.Show(ex.Message); //Se muestra el error si da error
             }
+        }
+
+
+        private void imprimirReporteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            System.Drawing.Printing.PrintDocument myPrintDocument1 = new System.Drawing.Printing.PrintDocument(); //Se crea un nuevo documento de impresion
+            PrintDialog myPrinDialog1 = new PrintDialog(); //Se crea un dialogo para la impresion
+            myPrintDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(myPrintDocument1_PrintPage); //Se agrega el evento printpage al documento creado
+            myPrinDialog1.Document = myPrintDocument1; //El documento a trabajar con el dialogo es el anterior
+
+            if (myPrinDialog1.ShowDialog() == DialogResult.OK) //Si todo salio bien
+            {
+                myPrintDocument1.Print(); //Imprimir el documento
+            }
+        }
+
+        private void myPrintDocument1_PrintPage(System.Object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Size Tamanho = new Size(); //Tamaño es igual a un nuevo Size
+            Bitmap myBitmap1 = new Bitmap(pbCanvas.Width, pbCanvas.Height); //Creamos un bitmap con las dimensiones del canvas
+            pbCanvas.DrawToBitmap(myBitmap1, new Rectangle(0, 0, pbCanvas.Width, pbCanvas.Height)); //Dibujamos hacia el bitmap creado con las proporciones del canvas
+            Tamanho = new Size(myBitmap1.Width, myBitmap1.Height); //El tamaño es igual al tamaño del bitmap
+            while (Tamanho.Width > 600 || Tamanho.Height > 900) //Mientras el tamaño sobrepasa el de una hoja A4
+                Tamanho = new Size(Tamanho.Width / 2, Tamanho.Height / 2); //Se reduce el tamaño a la mitad
+            myBitmap1 = ResizeBitmap(myBitmap1, 600, Tamanho.Height); //Se actualiza el tamaño del bitmap al nuevo que quepa en una hoja A4
+            e.Graphics.DrawImage(myBitmap1, 50, 50); //Dibujar el graphic en el bitmap;
+            myBitmap1.Dispose(); //Se destruye el objeto
+        }
+
+        private Bitmap ResizeBitmap(Bitmap sourceBMP, int width, int height)
+        {
+            Bitmap result = new Bitmap(width, height); //Creamos otro bitmap resultado con las nuevas dimensiones
+            using (Graphics g = Graphics.FromImage(result)) //Se crea un graphic a partir de una imagen
+            {
+                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor; //Asignamos el modo de interpolacion
+                g.DrawImage(sourceBMP, 0, 0, width, height); //Se dibuja el bitmap con el nuevo tamaño
+            }
+            return result; //Se regresa el bitmap redimensionado
         }
 
         /*****************************************************************************/
