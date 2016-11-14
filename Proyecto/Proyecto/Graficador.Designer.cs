@@ -33,6 +33,7 @@
             this.TopUserInfoPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.lblAuthUserEmail = new MetroFramework.Controls.MetroLabel();
             this.linkChangePassword = new MetroFramework.Controls.MetroLink();
+            this.avatarPictureBox = new System.Windows.Forms.PictureBox();
             this.graficadorStyleManager = new MetroFramework.Components.MetroStyleManager(this.components);
             this.CMSMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.verticeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,19 +50,18 @@
             this.floydToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirReporteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.flowLayoutCentralPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.reestablecerGrafoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.flowLayoutCentralPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.pbCanvas = new System.Windows.Forms.PictureBox();
             this.pbCamion = new System.Windows.Forms.PictureBox();
-            this.avatarPictureBox = new System.Windows.Forms.PictureBox();
             this.TopPanel.SuspendLayout();
             this.TopUserInfoPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avatarPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.graficadorStyleManager)).BeginInit();
             this.CMSMenu.SuspendLayout();
             this.flowLayoutCentralPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCanvas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCamion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.avatarPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // TopPanel
@@ -114,6 +114,16 @@
             this.linkChangePassword.UseSelectable = true;
             this.linkChangePassword.UseStyleColors = true;
             this.linkChangePassword.Click += new System.EventHandler(this.linkChangePassword_Click);
+            // 
+            // avatarPictureBox
+            // 
+            this.avatarPictureBox.Dock = System.Windows.Forms.DockStyle.Right;
+            this.avatarPictureBox.InitialImage = null;
+            this.avatarPictureBox.Location = new System.Drawing.Point(707, 0);
+            this.avatarPictureBox.Name = "avatarPictureBox";
+            this.avatarPictureBox.Size = new System.Drawing.Size(48, 54);
+            this.avatarPictureBox.TabIndex = 3;
+            this.avatarPictureBox.TabStop = false;
             // 
             // graficadorStyleManager
             // 
@@ -238,6 +248,13 @@
             this.imprimirReporteToolStripMenuItem1.Size = new System.Drawing.Size(164, 22);
             this.imprimirReporteToolStripMenuItem1.Text = "Imprimir Reporte";
             // 
+            // reestablecerGrafoToolStripMenuItem
+            // 
+            this.reestablecerGrafoToolStripMenuItem.Name = "reestablecerGrafoToolStripMenuItem";
+            this.reestablecerGrafoToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.reestablecerGrafoToolStripMenuItem.Text = "Reestablecer grafo";
+            this.reestablecerGrafoToolStripMenuItem.Click += new System.EventHandler(this.reestablecerGrafoToolStripMenuItem_Click);
+            // 
             // flowLayoutCentralPanel
             // 
             this.flowLayoutCentralPanel.AutoScroll = true;
@@ -247,13 +264,6 @@
             this.flowLayoutCentralPanel.Name = "flowLayoutCentralPanel";
             this.flowLayoutCentralPanel.Size = new System.Drawing.Size(775, 486);
             this.flowLayoutCentralPanel.TabIndex = 3;
-            // 
-            // reestablecerGrafoToolStripMenuItem
-            // 
-            this.reestablecerGrafoToolStripMenuItem.Name = "reestablecerGrafoToolStripMenuItem";
-            this.reestablecerGrafoToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.reestablecerGrafoToolStripMenuItem.Text = "Reestablecer grafo";
-            this.reestablecerGrafoToolStripMenuItem.Click += new System.EventHandler(this.reestablecerGrafoToolStripMenuItem_Click);
             // 
             // pbCanvas
             // 
@@ -272,7 +282,8 @@
             // 
             // pbCamion
             // 
-            this.pbCamion.Image = global::Proyecto.Properties.Resources.Camion;
+            this.pbCamion.BackgroundImage = global::Proyecto.Properties.Resources.Camion;
+            this.pbCamion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pbCamion.Location = new System.Drawing.Point(300, 350);
             this.pbCamion.Name = "pbCamion";
             this.pbCamion.Size = new System.Drawing.Size(48, 48);
@@ -280,16 +291,6 @@
             this.pbCamion.TabIndex = 3;
             this.pbCamion.TabStop = false;
             this.pbCamion.Visible = false;
-            // 
-            // avatarPictureBox
-            // 
-            this.avatarPictureBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.avatarPictureBox.InitialImage = null;
-            this.avatarPictureBox.Location = new System.Drawing.Point(707, 0);
-            this.avatarPictureBox.Name = "avatarPictureBox";
-            this.avatarPictureBox.Size = new System.Drawing.Size(48, 54);
-            this.avatarPictureBox.TabIndex = 3;
-            this.avatarPictureBox.TabStop = false;
             // 
             // Graficador
             // 
@@ -311,13 +312,13 @@
             this.TopPanel.PerformLayout();
             this.TopUserInfoPanel.ResumeLayout(false);
             this.TopUserInfoPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avatarPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.graficadorStyleManager)).EndInit();
             this.CMSMenu.ResumeLayout(false);
             this.flowLayoutCentralPanel.ResumeLayout(false);
             this.flowLayoutCentralPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCanvas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCamion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.avatarPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

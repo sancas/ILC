@@ -57,7 +57,11 @@
             this.userDataGridView = new MetroFramework.Controls.MetroGrid();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RoleId = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -74,6 +78,7 @@
             this.RolesTabPage = new MetroFramework.Controls.MetroTabPage();
             this.roleDataGridView = new MetroFramework.Controls.MetroGrid();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roleBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem1 = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem1 = new System.Windows.Forms.ToolStripButton();
@@ -89,6 +94,10 @@
             this.roleBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.TravelProblemsTabPage = new MetroFramework.Controls.MetroTabPage();
             this.travelProblemsDataGridView = new MetroFramework.Controls.MetroGrid();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pesoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.travelProblemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.travelProblemsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem3 = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem2 = new System.Windows.Forms.ToolStripButton();
@@ -108,6 +117,7 @@
             this.lblNodoImage = new MetroFramework.Controls.MetroLabel();
             this.panelBackgroundGraph = new System.Windows.Forms.Panel();
             this.pbGraphBackground = new System.Windows.Forms.PictureBox();
+            this.graphBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnCambiarBackground = new MetroFramework.Controls.MetroButton();
             this.flowLayoutPanelImageNode = new System.Windows.Forms.FlowLayoutPanel();
             this.pbNodo = new System.Windows.Forms.PictureBox();
@@ -135,16 +145,6 @@
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roleIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pesoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.travelProblemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.graphBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.PrincipalStyleManager)).BeginInit();
             this.TopPanel.SuspendLayout();
             this.TopUserInfoPanel.SuspendLayout();
@@ -154,6 +154,8 @@
             this.MainTabControl.SuspendLayout();
             this.UsersTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingNavigator)).BeginInit();
             this.userBindingNavigator.SuspendLayout();
             this.RolesTabPage.SuspendLayout();
@@ -162,21 +164,19 @@
             this.roleBindingNavigator.SuspendLayout();
             this.TravelProblemsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.travelProblemsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.travelProblemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.travelProblemsBindingNavigator)).BeginInit();
             this.travelProblemsBindingNavigator.SuspendLayout();
             this.GraphTabPage.SuspendLayout();
             this.tableLayoutPanelGraph.SuspendLayout();
             this.panelBackgroundGraph.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbGraphBackground)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.graphBindingSource)).BeginInit();
             this.flowLayoutPanelImageNode.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbNodo)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graphBindingNavigator)).BeginInit();
             this.graphBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.travelProblemBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.graphBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // PrincipalStyleManager
@@ -383,7 +383,7 @@
             this.MainTabControl.ItemSize = new System.Drawing.Size(54, 20);
             this.MainTabControl.Location = new System.Drawing.Point(126, 3);
             this.MainTabControl.Name = "MainTabControl";
-            this.MainTabControl.SelectedIndex = 3;
+            this.MainTabControl.SelectedIndex = 0;
             this.MainTabControl.Size = new System.Drawing.Size(638, 360);
             this.MainTabControl.TabIndex = 4;
             this.MainTabControl.UseSelectable = true;
@@ -477,6 +477,18 @@
             this.Username.HeaderText = "Username";
             this.Username.Name = "Username";
             // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // genderDataGridViewTextBoxColumn
+            // 
+            this.genderDataGridViewTextBoxColumn.DataPropertyName = "Gender";
+            this.genderDataGridViewTextBoxColumn.HeaderText = "Gender";
+            this.genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
+            // 
             // RoleId
             // 
             this.RoleId.DataPropertyName = "RoleId";
@@ -486,6 +498,14 @@
             this.RoleId.Name = "RoleId";
             this.RoleId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.RoleId.ValueMember = "Id";
+            // 
+            // roleBindingSource
+            // 
+            this.roleBindingSource.DataSource = typeof(Proyecto.Data.Role);
+            // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataSource = typeof(Proyecto.Data.User);
             // 
             // userBindingNavigator
             // 
@@ -692,6 +712,12 @@
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Visible = false;
             // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            // 
             // roleBindingNavigator
             // 
             this.roleBindingNavigator.AddNewItem = null;
@@ -891,6 +917,30 @@
             this.travelProblemsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.travelProblemsDataGridView.Size = new System.Drawing.Size(630, 307);
             this.travelProblemsDataGridView.TabIndex = 3;
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // nameDataGridViewTextBoxColumn2
+            // 
+            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
+            // 
+            // pesoDataGridViewTextBoxColumn
+            // 
+            this.pesoDataGridViewTextBoxColumn.DataPropertyName = "Peso";
+            this.pesoDataGridViewTextBoxColumn.HeaderText = "Peso";
+            this.pesoDataGridViewTextBoxColumn.Name = "pesoDataGridViewTextBoxColumn";
+            // 
+            // travelProblemBindingSource
+            // 
+            this.travelProblemBindingSource.DataSource = typeof(Proyecto.Data.TravelProblem);
             // 
             // travelProblemsBindingNavigator
             // 
@@ -1104,6 +1154,11 @@
             this.pbGraphBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbGraphBackground.TabIndex = 3;
             this.pbGraphBackground.TabStop = false;
+            // 
+            // graphBindingSource
+            // 
+            this.graphBindingSource.DataSource = typeof(Proyecto.Data.Graph);
+            this.graphBindingSource.CurrentChanged += new System.EventHandler(this.graphBindingSource_CurrentChanged);
             // 
             // btnCambiarBackground
             // 
@@ -1404,61 +1459,6 @@
             this.roleDataGridViewTextBoxColumn.Name = "roleDataGridViewTextBoxColumn";
             this.roleDataGridViewTextBoxColumn.Width = 53;
             // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // genderDataGridViewTextBoxColumn
-            // 
-            this.genderDataGridViewTextBoxColumn.DataPropertyName = "Gender";
-            this.genderDataGridViewTextBoxColumn.HeaderText = "Gender";
-            this.genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
-            // 
-            // roleBindingSource
-            // 
-            this.roleBindingSource.DataSource = typeof(Proyecto.Data.Role);
-            // 
-            // userBindingSource
-            // 
-            this.userBindingSource.DataSource = typeof(Proyecto.Data.User);
-            // 
-            // nameDataGridViewTextBoxColumn1
-            // 
-            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
-            // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // nameDataGridViewTextBoxColumn2
-            // 
-            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
-            // 
-            // pesoDataGridViewTextBoxColumn
-            // 
-            this.pesoDataGridViewTextBoxColumn.DataPropertyName = "Peso";
-            this.pesoDataGridViewTextBoxColumn.HeaderText = "Peso";
-            this.pesoDataGridViewTextBoxColumn.Name = "pesoDataGridViewTextBoxColumn";
-            // 
-            // travelProblemBindingSource
-            // 
-            this.travelProblemBindingSource.DataSource = typeof(Proyecto.Data.TravelProblem);
-            // 
-            // graphBindingSource
-            // 
-            this.graphBindingSource.DataSource = typeof(Proyecto.Data.Graph);
-            this.graphBindingSource.CurrentChanged += new System.EventHandler(this.graphBindingSource_CurrentChanged);
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1486,6 +1486,8 @@
             this.UsersTabPage.ResumeLayout(false);
             this.UsersTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingNavigator)).EndInit();
             this.userBindingNavigator.ResumeLayout(false);
             this.userBindingNavigator.PerformLayout();
@@ -1498,6 +1500,7 @@
             this.TravelProblemsTabPage.ResumeLayout(false);
             this.TravelProblemsTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.travelProblemsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.travelProblemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.travelProblemsBindingNavigator)).EndInit();
             this.travelProblemsBindingNavigator.ResumeLayout(false);
             this.travelProblemsBindingNavigator.PerformLayout();
@@ -1507,6 +1510,7 @@
             this.tableLayoutPanelGraph.PerformLayout();
             this.panelBackgroundGraph.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbGraphBackground)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.graphBindingSource)).EndInit();
             this.flowLayoutPanelImageNode.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbNodo)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
@@ -1514,10 +1518,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.graphBindingNavigator)).EndInit();
             this.graphBindingNavigator.ResumeLayout(false);
             this.graphBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.travelProblemBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.graphBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

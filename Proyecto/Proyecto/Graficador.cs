@@ -13,7 +13,7 @@ using Proyecto.Data;
 using Proyecto.Properties;
 using System.Drawing.Drawing2D;
 using System.Reflection;
-using System.Threading;
+using WinFormAnimation;
 
 namespace Proyecto
 {
@@ -381,25 +381,28 @@ namespace Proyecto
                 Velocidad frmVelocidad = new Velocidad(graficadorStyleManager, tiempo);
                 frmVelocidad.trackBarTime.Scroll += new System.Windows.Forms.ScrollEventHandler(this.trackBarTime_Scroll);
                 frmVelocidad.Show(this);
-                await Task.Delay(tiempo);
                 calcularMatricesIniciales();
                 algoritmoWarshall();
                 obtenerRutaPesoWarshall(NodoOrigen, NodoDestino);
                 if (buscarRuta)
                 {
+                    pbCamion.Location = new Point(nodosRuta[0].Posicion.X - 20, nodosRuta[0].Posicion.Y - 20);
+                    pbCamion.Parent = pbCanvas;
+                    pbCanvas.BackColor = Color.Transparent;
+                    pbCamion.Visible = true;
                     for (int x = 0; x < nodosRuta.Count; x++)
                     {
+                        if (x!=0) await Task.Delay(tiempo);
                         grafo.Colorear(nodosRuta[x]);
                         pbCanvas.Refresh();
-                        await Task.Delay(tiempo);
                         if (x + 1 < nodosRuta.Count)
                         {
                             mensaje += nodosRuta[x].Valor + " > ";
+                            new Animator2D(new Path2D(pbCamion.Location.X, nodosRuta[x + 1].Posicion.X - 20, pbCamion.Location.Y, nodosRuta[x + 1].Posicion.Y - 20, (ulong)tiempo)).Play(pbCamion, Animator2D.KnownProperties.Location);
                             grafo.ColoArista(nodosRuta[x].Valor, nodosRuta[x + 1].Valor);
                             if (!grafo.DiGrafo)
                                 grafo.ColoArista(nodosRuta[x + 1].Valor, nodosRuta[x].Valor);
                             pbCanvas.Refresh();
-                            await Task.Delay(tiempo);
                         }
                         else
                             mensaje += nodosRuta[x].Valor;
@@ -604,6 +607,7 @@ namespace Proyecto
 
         private void reestablecerGrafoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            pbCamion.Visible = false;
             grafo.RestablecerGrafo(pbCanvas.CreateGraphics());
             pbCanvas.Refresh();
         }
