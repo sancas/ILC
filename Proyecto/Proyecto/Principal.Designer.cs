@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PrincipalStyleManager = new MetroFramework.Components.MetroStyleManager(this.components);
             this.TopPanel = new MetroFramework.Controls.MetroPanel();
             this.TopUserInfoPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -111,9 +111,10 @@
             this.roleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblGraphBackground = new MetroFramework.Controls.MetroLabel();
             this.tableLayoutPanelGraph = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelBackgroundGraph = new System.Windows.Forms.Panel();
+            this.flowLayoutPanelImageNode = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnAbrirGrafo = new MetroFramework.Controls.MetroButton();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -121,7 +122,6 @@
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.graphBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnAbrirGrafo = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.PrincipalStyleManager)).BeginInit();
             this.TopPanel.SuspendLayout();
             this.TopUserInfoPanel.SuspendLayout();
@@ -144,8 +144,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.graphBindingNavigator)).BeginInit();
             this.graphBindingNavigator.SuspendLayout();
             this.tableLayoutPanelGraph.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.panelBackgroundGraph.SuspendLayout();
+            this.flowLayoutPanelImageNode.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
@@ -166,7 +166,7 @@
             this.TopPanel.HorizontalScrollbarSize = 10;
             this.TopPanel.Location = new System.Drawing.Point(0, 60);
             this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(1019, 54);
+            this.TopPanel.Size = new System.Drawing.Size(767, 54);
             this.TopPanel.TabIndex = 0;
             this.TopPanel.VerticalScrollbarBarColor = true;
             this.TopPanel.VerticalScrollbarHighlightOnWheel = false;
@@ -179,7 +179,7 @@
             this.TopUserInfoPanel.Controls.Add(this.linkChangePassword);
             this.TopUserInfoPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.TopUserInfoPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.TopUserInfoPanel.Location = new System.Drawing.Point(840, 0);
+            this.TopUserInfoPanel.Location = new System.Drawing.Point(588, 0);
             this.TopUserInfoPanel.Name = "TopUserInfoPanel";
             this.TopUserInfoPanel.Size = new System.Drawing.Size(131, 54);
             this.TopUserInfoPanel.TabIndex = 2;
@@ -210,7 +210,7 @@
             // 
             this.avatarPictureBox.Dock = System.Windows.Forms.DockStyle.Right;
             this.avatarPictureBox.InitialImage = null;
-            this.avatarPictureBox.Location = new System.Drawing.Point(971, 0);
+            this.avatarPictureBox.Location = new System.Drawing.Point(719, 0);
             this.avatarPictureBox.Name = "avatarPictureBox";
             this.avatarPictureBox.Size = new System.Drawing.Size(48, 54);
             this.avatarPictureBox.TabIndex = 3;
@@ -228,7 +228,7 @@
             this.tableLayoutAdminMain.Name = "tableLayoutAdminMain";
             this.tableLayoutAdminMain.RowCount = 1;
             this.tableLayoutAdminMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutAdminMain.Size = new System.Drawing.Size(1019, 581);
+            this.tableLayoutAdminMain.Size = new System.Drawing.Size(767, 366);
             this.tableLayoutAdminMain.TabIndex = 1;
             // 
             // tableLayoutLeft
@@ -249,7 +249,7 @@
             this.tableLayoutLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutLeft.Size = new System.Drawing.Size(164, 581);
+            this.tableLayoutLeft.Size = new System.Drawing.Size(123, 366);
             this.tableLayoutLeft.TabIndex = 3;
             // 
             // btnUsers
@@ -260,7 +260,7 @@
             this.btnUsers.Margin = new System.Windows.Forms.Padding(0);
             this.btnUsers.MinimumSize = new System.Drawing.Size(100, 0);
             this.btnUsers.Name = "btnUsers";
-            this.btnUsers.Size = new System.Drawing.Size(164, 145);
+            this.btnUsers.Size = new System.Drawing.Size(123, 91);
             this.btnUsers.TabIndex = 0;
             this.btnUsers.Text = "Usuarios";
             this.btnUsers.TileImage = ((System.Drawing.Image)(resources.GetObject("btnUsers.TileImage")));
@@ -275,11 +275,11 @@
             // 
             this.btnRoles.ActiveControl = null;
             this.btnRoles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnRoles.Location = new System.Drawing.Point(0, 145);
+            this.btnRoles.Location = new System.Drawing.Point(0, 91);
             this.btnRoles.Margin = new System.Windows.Forms.Padding(0);
             this.btnRoles.MinimumSize = new System.Drawing.Size(100, 0);
             this.btnRoles.Name = "btnRoles";
-            this.btnRoles.Size = new System.Drawing.Size(164, 145);
+            this.btnRoles.Size = new System.Drawing.Size(123, 91);
             this.btnRoles.Style = MetroFramework.MetroColorStyle.Green;
             this.btnRoles.TabIndex = 1;
             this.btnRoles.Text = "Roles";
@@ -295,11 +295,11 @@
             // 
             this.btnTravelProblems.ActiveControl = null;
             this.btnTravelProblems.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnTravelProblems.Location = new System.Drawing.Point(0, 290);
+            this.btnTravelProblems.Location = new System.Drawing.Point(0, 182);
             this.btnTravelProblems.Margin = new System.Windows.Forms.Padding(0);
             this.btnTravelProblems.MinimumSize = new System.Drawing.Size(100, 0);
             this.btnTravelProblems.Name = "btnTravelProblems";
-            this.btnTravelProblems.Size = new System.Drawing.Size(164, 145);
+            this.btnTravelProblems.Size = new System.Drawing.Size(123, 91);
             this.btnTravelProblems.Style = MetroFramework.MetroColorStyle.Yellow;
             this.btnTravelProblems.TabIndex = 2;
             this.btnTravelProblems.Text = "Problemas";
@@ -315,11 +315,11 @@
             // 
             this.btnGraph.ActiveControl = null;
             this.btnGraph.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGraph.Location = new System.Drawing.Point(0, 435);
+            this.btnGraph.Location = new System.Drawing.Point(0, 273);
             this.btnGraph.Margin = new System.Windows.Forms.Padding(0);
             this.btnGraph.MinimumSize = new System.Drawing.Size(100, 0);
             this.btnGraph.Name = "btnGraph";
-            this.btnGraph.Size = new System.Drawing.Size(164, 146);
+            this.btnGraph.Size = new System.Drawing.Size(123, 93);
             this.btnGraph.Style = MetroFramework.MetroColorStyle.Red;
             this.btnGraph.TabIndex = 3;
             this.btnGraph.Text = "Grafo";
@@ -339,10 +339,10 @@
             this.MainTabControl.Controls.Add(this.GraphTabPage);
             this.MainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTabControl.ItemSize = new System.Drawing.Size(54, 20);
-            this.MainTabControl.Location = new System.Drawing.Point(167, 3);
+            this.MainTabControl.Location = new System.Drawing.Point(126, 3);
             this.MainTabControl.Name = "MainTabControl";
             this.MainTabControl.SelectedIndex = 3;
-            this.MainTabControl.Size = new System.Drawing.Size(849, 575);
+            this.MainTabControl.Size = new System.Drawing.Size(638, 360);
             this.MainTabControl.TabIndex = 4;
             this.MainTabControl.UseSelectable = true;
             // 
@@ -356,7 +356,7 @@
             this.UsersTabPage.HorizontalScrollbarSize = 0;
             this.UsersTabPage.Location = new System.Drawing.Point(4, 24);
             this.UsersTabPage.Name = "UsersTabPage";
-            this.UsersTabPage.Size = new System.Drawing.Size(841, 547);
+            this.UsersTabPage.Size = new System.Drawing.Size(630, 332);
             this.UsersTabPage.TabIndex = 0;
             this.UsersTabPage.Text = "Users";
             this.UsersTabPage.VerticalScrollbar = true;
@@ -377,14 +377,14 @@
             this.userDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.userDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.userDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.userDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.userDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.userDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.userDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -393,14 +393,14 @@
             this.emailDataGridViewTextBoxColumn,
             this.RoleId});
             this.userDataGridView.DataSource = this.userBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.userDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.userDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
             this.userDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userDataGridView.EnableHeadersVisualStyles = false;
             this.userDataGridView.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -408,17 +408,17 @@
             this.userDataGridView.Location = new System.Drawing.Point(0, 25);
             this.userDataGridView.Name = "userDataGridView";
             this.userDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.userDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.userDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.userDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.userDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.userDataGridView.Size = new System.Drawing.Size(841, 522);
+            this.userDataGridView.Size = new System.Drawing.Size(630, 307);
             this.userDataGridView.TabIndex = 5;
             this.userDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.userDataGridView_DataError);
             // 
@@ -466,7 +466,7 @@
             this.userBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.userBindingNavigator.Name = "userBindingNavigator";
             this.userBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.userBindingNavigator.Size = new System.Drawing.Size(841, 25);
+            this.userBindingNavigator.Size = new System.Drawing.Size(630, 25);
             this.userBindingNavigator.TabIndex = 4;
             this.userBindingNavigator.Text = "userBindingNavigator";
             // 
@@ -575,7 +575,7 @@
             this.RolesTabPage.HorizontalScrollbarSize = 10;
             this.RolesTabPage.Location = new System.Drawing.Point(4, 24);
             this.RolesTabPage.Name = "RolesTabPage";
-            this.RolesTabPage.Size = new System.Drawing.Size(841, 547);
+            this.RolesTabPage.Size = new System.Drawing.Size(630, 332);
             this.RolesTabPage.TabIndex = 1;
             this.RolesTabPage.Text = "Roles";
             this.RolesTabPage.VerticalScrollbarBarColor = true;
@@ -594,27 +594,27 @@
             this.roleDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.roleDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.roleDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.roleDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.roleDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.roleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.roleDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.nameDataGridViewTextBoxColumn1});
             this.roleDataGridView.DataSource = this.roleBindingSource;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.roleDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.roleDataGridView.DefaultCellStyle = dataGridViewCellStyle11;
             this.roleDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.roleDataGridView.EnableHeadersVisualStyles = false;
             this.roleDataGridView.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -622,17 +622,17 @@
             this.roleDataGridView.Location = new System.Drawing.Point(0, 25);
             this.roleDataGridView.Name = "roleDataGridView";
             this.roleDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.roleDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.roleDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.roleDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.roleDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.roleDataGridView.Size = new System.Drawing.Size(841, 522);
+            this.roleDataGridView.Size = new System.Drawing.Size(630, 307);
             this.roleDataGridView.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn1
@@ -671,7 +671,7 @@
             this.roleBindingNavigator.Name = "roleBindingNavigator";
             this.roleBindingNavigator.PositionItem = this.bindingNavigatorPositionItem1;
             this.roleBindingNavigator.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.roleBindingNavigator.Size = new System.Drawing.Size(841, 25);
+            this.roleBindingNavigator.Size = new System.Drawing.Size(630, 25);
             this.roleBindingNavigator.TabIndex = 3;
             this.roleBindingNavigator.Text = "roleBindingNavigator";
             // 
@@ -780,7 +780,7 @@
             this.TravelProblemsTabPage.HorizontalScrollbarSize = 10;
             this.TravelProblemsTabPage.Location = new System.Drawing.Point(4, 24);
             this.TravelProblemsTabPage.Name = "TravelProblemsTabPage";
-            this.TravelProblemsTabPage.Size = new System.Drawing.Size(841, 547);
+            this.TravelProblemsTabPage.Size = new System.Drawing.Size(630, 332);
             this.TravelProblemsTabPage.TabIndex = 2;
             this.TravelProblemsTabPage.Text = "Travel Problems";
             this.TravelProblemsTabPage.VerticalScrollbarBarColor = true;
@@ -807,7 +807,7 @@
             this.GraphTabPage.HorizontalScrollbarSize = 10;
             this.GraphTabPage.Location = new System.Drawing.Point(4, 24);
             this.GraphTabPage.Name = "GraphTabPage";
-            this.GraphTabPage.Size = new System.Drawing.Size(841, 547);
+            this.GraphTabPage.Size = new System.Drawing.Size(630, 332);
             this.GraphTabPage.TabIndex = 3;
             this.GraphTabPage.Text = "Graph";
             this.GraphTabPage.VerticalScrollbar = true;
@@ -843,9 +843,9 @@
             // 
             this.btnCambiarBackground.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnCambiarBackground.Highlight = true;
-            this.btnCambiarBackground.Location = new System.Drawing.Point(0, 389);
+            this.btnCambiarBackground.Location = new System.Drawing.Point(0, 217);
             this.btnCambiarBackground.Name = "btnCambiarBackground";
-            this.btnCambiarBackground.Size = new System.Drawing.Size(545, 23);
+            this.btnCambiarBackground.Size = new System.Drawing.Size(334, 23);
             this.btnCambiarBackground.TabIndex = 10;
             this.btnCambiarBackground.Text = "Cambiar...";
             this.btnCambiarBackground.UseSelectable = true;
@@ -856,7 +856,7 @@
             // 
             this.lblNodoImage.AutoSize = true;
             this.lblNodoImage.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblNodoImage.Location = new System.Drawing.Point(3, 418);
+            this.lblNodoImage.Location = new System.Drawing.Point(3, 246);
             this.lblNodoImage.Name = "lblNodoImage";
             this.lblNodoImage.Size = new System.Drawing.Size(118, 25);
             this.lblNodoImage.TabIndex = 9;
@@ -902,7 +902,7 @@
             this.pbGraphBackground.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbGraphBackground.Location = new System.Drawing.Point(0, 0);
             this.pbGraphBackground.Name = "pbGraphBackground";
-            this.pbGraphBackground.Size = new System.Drawing.Size(545, 389);
+            this.pbGraphBackground.Size = new System.Drawing.Size(334, 217);
             this.pbGraphBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbGraphBackground.TabIndex = 3;
             this.pbGraphBackground.TabStop = false;
@@ -934,7 +934,7 @@
             this.graphBindingNavigator.Name = "graphBindingNavigator";
             this.graphBindingNavigator.PositionItem = this.bindingNavigatorPositionItem2;
             this.graphBindingNavigator.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.graphBindingNavigator.Size = new System.Drawing.Size(841, 25);
+            this.graphBindingNavigator.Size = new System.Drawing.Size(630, 25);
             this.graphBindingNavigator.TabIndex = 2;
             this.graphBindingNavigator.Text = "graphBindingNavigator";
             // 
@@ -1022,7 +1022,7 @@
             this.toolStripDeleteGraph.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDeleteGraph.Name = "toolStripDeleteGraph";
             this.toolStripDeleteGraph.Size = new System.Drawing.Size(23, 22);
-            this.toolStripDeleteGraph.Text = "toolStripButton1";
+            this.toolStripDeleteGraph.Text = "Eliminar Grafo";
             this.toolStripDeleteGraph.Click += new System.EventHandler(this.toolStripDeleteGraph_Click);
             // 
             // idDataGridViewTextBoxColumn
@@ -1073,8 +1073,8 @@
             this.tableLayoutPanelGraph.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
             this.tableLayoutPanelGraph.Controls.Add(this.lblGraphBackground, 0, 0);
             this.tableLayoutPanelGraph.Controls.Add(this.lblNodoImage, 0, 1);
-            this.tableLayoutPanelGraph.Controls.Add(this.panel1, 1, 0);
-            this.tableLayoutPanelGraph.Controls.Add(this.flowLayoutPanel1, 1, 1);
+            this.tableLayoutPanelGraph.Controls.Add(this.panelBackgroundGraph, 1, 0);
+            this.tableLayoutPanelGraph.Controls.Add(this.flowLayoutPanelImageNode, 1, 1);
             this.tableLayoutPanelGraph.Controls.Add(this.flowLayoutPanel2, 2, 0);
             this.tableLayoutPanelGraph.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelGraph.Location = new System.Drawing.Point(0, 25);
@@ -1082,28 +1082,28 @@
             this.tableLayoutPanelGraph.RowCount = 2;
             this.tableLayoutPanelGraph.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.2682F));
             this.tableLayoutPanelGraph.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.7318F));
-            this.tableLayoutPanelGraph.Size = new System.Drawing.Size(841, 522);
+            this.tableLayoutPanelGraph.Size = new System.Drawing.Size(630, 307);
             this.tableLayoutPanelGraph.TabIndex = 13;
             // 
-            // panel1
+            // panelBackgroundGraph
             // 
-            this.panel1.Controls.Add(this.pbGraphBackground);
-            this.panel1.Controls.Add(this.btnCambiarBackground);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(133, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(545, 412);
-            this.panel1.TabIndex = 10;
+            this.panelBackgroundGraph.Controls.Add(this.pbGraphBackground);
+            this.panelBackgroundGraph.Controls.Add(this.btnCambiarBackground);
+            this.panelBackgroundGraph.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelBackgroundGraph.Location = new System.Drawing.Point(133, 3);
+            this.panelBackgroundGraph.Name = "panelBackgroundGraph";
+            this.panelBackgroundGraph.Size = new System.Drawing.Size(334, 240);
+            this.panelBackgroundGraph.TabIndex = 10;
             // 
-            // flowLayoutPanel1
+            // flowLayoutPanelImageNode
             // 
-            this.flowLayoutPanel1.Controls.Add(this.pbNodo);
-            this.flowLayoutPanel1.Controls.Add(this.btnCambiarNodo);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(133, 421);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(545, 98);
-            this.flowLayoutPanel1.TabIndex = 11;
+            this.flowLayoutPanelImageNode.Controls.Add(this.pbNodo);
+            this.flowLayoutPanelImageNode.Controls.Add(this.btnCambiarNodo);
+            this.flowLayoutPanelImageNode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelImageNode.Location = new System.Drawing.Point(133, 249);
+            this.flowLayoutPanelImageNode.Name = "flowLayoutPanelImageNode";
+            this.flowLayoutPanelImageNode.Size = new System.Drawing.Size(334, 55);
+            this.flowLayoutPanelImageNode.TabIndex = 11;
             // 
             // flowLayoutPanel2
             // 
@@ -1112,10 +1112,24 @@
             this.flowLayoutPanel2.Controls.Add(this.lnkActivar);
             this.flowLayoutPanel2.Controls.Add(this.btnAbrirGrafo);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(684, 3);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(473, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(154, 412);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(154, 240);
             this.flowLayoutPanel2.TabIndex = 12;
+            // 
+            // btnAbrirGrafo
+            // 
+            this.btnAbrirGrafo.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnAbrirGrafo.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnAbrirGrafo.Highlight = true;
+            this.btnAbrirGrafo.Location = new System.Drawing.Point(3, 57);
+            this.btnAbrirGrafo.Name = "btnAbrirGrafo";
+            this.btnAbrirGrafo.Size = new System.Drawing.Size(150, 29);
+            this.btnAbrirGrafo.TabIndex = 13;
+            this.btnAbrirGrafo.Text = "Abrir Grafo";
+            this.btnAbrirGrafo.UseSelectable = true;
+            this.btnAbrirGrafo.UseStyleColors = true;
+            this.btnAbrirGrafo.Click += new System.EventHandler(this.btnAbrirGrafo_Click);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -1154,24 +1168,11 @@
             this.graphBindingSource.DataSource = typeof(Proyecto.Data.Graph);
             this.graphBindingSource.CurrentChanged += new System.EventHandler(this.graphBindingSource_CurrentChanged);
             // 
-            // btnAbrirGrafo
-            // 
-            this.btnAbrirGrafo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnAbrirGrafo.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.btnAbrirGrafo.Highlight = true;
-            this.btnAbrirGrafo.Location = new System.Drawing.Point(3, 57);
-            this.btnAbrirGrafo.Name = "btnAbrirGrafo";
-            this.btnAbrirGrafo.Size = new System.Drawing.Size(150, 29);
-            this.btnAbrirGrafo.TabIndex = 13;
-            this.btnAbrirGrafo.Text = "Abrir Grafo";
-            this.btnAbrirGrafo.UseSelectable = true;
-            this.btnAbrirGrafo.UseStyleColors = true;
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1039, 695);
+            this.ClientSize = new System.Drawing.Size(787, 480);
             this.Controls.Add(this.tableLayoutAdminMain);
             this.Controls.Add(this.TopPanel);
             this.HelpButton = true;
@@ -1214,8 +1215,8 @@
             this.graphBindingNavigator.PerformLayout();
             this.tableLayoutPanelGraph.ResumeLayout(false);
             this.tableLayoutPanelGraph.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.panelBackgroundGraph.ResumeLayout(false);
+            this.flowLayoutPanelImageNode.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).EndInit();
@@ -1308,8 +1309,8 @@
         private MetroFramework.Controls.MetroLink lnkActivar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelGraph;
         private MetroFramework.Controls.MetroLabel lblGraphBackground;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel panelBackgroundGraph;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelImageNode;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private MetroFramework.Controls.MetroButton btnAbrirGrafo;
     }

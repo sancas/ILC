@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using MetroFramework.Forms;
 using MetroFramework;
 using Proyecto.Data;
@@ -59,16 +60,17 @@ namespace Proyecto
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Operaciones OP = new Operaciones(AuthUser);
-            if (OP.UpdatePassword(txtPassword.Text))
-                this.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.Close();
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Close();
+            if (txtPassword.Text == txtPassword2.Text)
+            {
+                Operaciones OP = new Operaciones(AuthUser);
+                if (OP.UpdatePassword(txtPassword.Text))
+                    this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                MetroMessageBox.Show(this, "Los passwords no coinciden", "Error password", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+            }
         }
     }
 }

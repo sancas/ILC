@@ -116,6 +116,12 @@
       <DependentUpon>201611130814019_DeleteInCascadeGraphAdded.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="NuevoArco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevoArco.Designer.cs">
+      <DependentUpon>NuevoArco.cs</DependentUpon>
+    </Compile>
     <Compile Include="Operaciones.cs" />
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611130814019_DeleteInCascadeGraphAdded.resx">
       <DependentUpon>201611130814019_DeleteInCascadeGraphAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevoArco.resx">
+      <DependentUpon>NuevoArco.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>

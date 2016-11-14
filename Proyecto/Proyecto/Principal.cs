@@ -208,16 +208,24 @@ namespace Proyecto
         private void btnCambiarBackground_Click(object sender, EventArgs e)
         {
             OpenFileDialog changeBackground = new OpenFileDialog();
-            changeBackground.ShowDialog(this);
-            pbGraphBackground.Image = Image.FromFile(changeBackground.FileName);
-            Graph miGrafo = (Graph)graphBindingSource.Current;
-            IlcSet.Graphs.Where(v => v.Id == miGrafo.Id).FirstOrDefault().Background = System.IO.File.ReadAllBytes(changeBackground.FileName);
-            IlcSet.SaveChanges();
+            changeBackground.InitialDirectory = "c:\\"; //Directorio inicial para el LoadDialog
+            changeBackground.Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF|" +
+                "All files (*.*)|*.*"; //Filtro de archivos
+            changeBackground.FilterIndex = 2; //Indice del filtro
+            changeBackground.RestoreDirectory = true; //Volver a abrir donde se cerro
+            if (changeBackground.ShowDialog() == DialogResult.OK) // Si fue satisfactorio
+            {
+                pbGraphBackground.Image = Image.FromFile(changeBackground.FileName);
+                Graph miGrafo = (Graph)graphBindingSource.Current;
+                IlcSet.Graphs.Where(v => v.Id == miGrafo.Id).FirstOrDefault().Background = System.IO.File.ReadAllBytes(changeBackground.FileName);
+                IlcSet.SaveChanges();
+            }
         }
 
         private void GraphTabPage_Enter(object sender, EventArgs e)
         {
-            this.graphBindingSource.DataSource = IlcSet.Graphs.ToList();
+            if (IlcSet.Graphs.Count() != 0)
+                this.graphBindingSource.DataSource = IlcSet.Graphs.ToList();
         }
 
         private void graphBindingSource_CurrentChanged(object sender, EventArgs e)
@@ -236,11 +244,18 @@ namespace Proyecto
         private void btnCambiarNodo_Click(object sender, EventArgs e)
         {
             OpenFileDialog changeNode = new OpenFileDialog();
-            changeNode.ShowDialog(this);
-            pbNodo.Image = Image.FromFile(changeNode.FileName);
-            Graph miGrafo = (Graph)graphBindingSource.Current;
-            IlcSet.Graphs.Where(v => v.Id == miGrafo.Id).FirstOrDefault().NodeIcon = System.IO.File.ReadAllBytes(changeNode.FileName);
-            IlcSet.SaveChanges();
+            changeNode.InitialDirectory = "c:\\"; //Directorio inicial para el LoadDialog
+            changeNode.Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF|" +
+                "All files (*.*)|*.*"; //Filtro de archivos
+            changeNode.FilterIndex = 2; //Indice del filtro
+            changeNode.RestoreDirectory = true; //Volver a abrir donde se cerro
+            if (changeNode.ShowDialog() == DialogResult.OK) // Si fue satisfactorio
+            {
+                pbNodo.Image = Image.FromFile(changeNode.FileName);
+                Graph miGrafo = (Graph)graphBindingSource.Current;
+                IlcSet.Graphs.Where(v => v.Id == miGrafo.Id).FirstOrDefault().NodeIcon = System.IO.File.ReadAllBytes(changeNode.FileName);
+                IlcSet.SaveChanges();
+            }
         }
 
         private void bindingNavigatorAddNewGraph_Click(object sender, EventArgs e)
@@ -275,6 +290,15 @@ namespace Proyecto
                 activoMetroToggle.Checked = true;
                 this.Cursor = Cursors.Default;
             }
+        }
+
+        private void btnAbrirGrafo_Click(object sender, EventArgs e)
+        {
+            Graph miGrafo = (Graph)graphBindingSource.Current;
+            Graficador frmGraficador = new Graficador(AuthUser, miGrafo);
+            this.Hide();
+            frmGraficador.ShowDialog(this);
+            this.Show();
         }
     }
 }

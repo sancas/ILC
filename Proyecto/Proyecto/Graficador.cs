@@ -12,6 +12,7 @@ using MetroFramework.Forms;
 using Proyecto.Data;
 using Proyecto.Properties;
 using System.Drawing.Drawing2D;
+using System.Reflection;
 
 namespace Proyecto
 {
@@ -35,31 +36,37 @@ namespace Proyecto
         {
             InitializeComponent();
         }
-
-        public Graficador(User AuthUser, Graph miGrafo)
+        public Graficador(User AuthUser, Graph miGrafo = null)
         {
             this.AuthUser = AuthUser;
             InitializeComponent();
+            typeof(Panel).InvokeMember("DoubleBuffered",
+                BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
+                null, pbCanvas, new object[] { true }); //Proceso importante para no parpadeé al dibujar
             nuevoNodo = null;
             var_control = 0;
             frmVentanaMultiple = null;
             tiempo = 100;
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
             IlcSet = new ILC();
-            if (miGrafo != null)
+            if (miGrafo == null)
+                this.miGrafo = IlcSet.Graphs.Where(u => u.Tipo == "Activo").FirstOrDefault();
+            else
+                this.miGrafo = IlcSet.Graphs.Where(u => u.Id == miGrafo.Id).FirstOrDefault();
+            if (this.miGrafo != null)
             {
                 grafo = new CGrafo();
-                if (miGrafo.Background != null)
-                    pbCanvas.BackgroundImage = Operaciones.byteArrayToImage(miGrafo.Background);
-                if (miGrafo.NodeIcon != null)
-                    grafo.NodoIcon = Operaciones.byteArrayToImage(miGrafo.NodeIcon);
-                foreach (Node miNodo in miGrafo.Nodes)
+                if (this.miGrafo.Background != null)
+                    pbCanvas.BackgroundImage = Operaciones.byteArrayToImage(this.miGrafo.Background);
+                if (this.miGrafo.NodeIcon != null)
+                    grafo.NodoIcon = Operaciones.byteArrayToImage(this.miGrafo.NodeIcon);
+                foreach (Node miNodo in this.miGrafo.Nodes)
                 {
                     nuevoNodo = new CVertice(miNodo.Name);
                     nuevoNodo.Posicion = new Point(miNodo.X, miNodo.Y);
                     grafo.AgregarVertice(nuevoNodo);
                 }
-                foreach (Edge miArista in miGrafo.Edges)
+                foreach (Edge miArista in this.miGrafo.Edges)
                 {
                     grafo.AgregarArco(grafo.BuscarVertice(miArista.NodoSalida), grafo.BuscarVertice(miArista.NodoLlegada), miArista.Value);
                 }
@@ -68,51 +75,10 @@ namespace Proyecto
             }
             else
             {
-                miGrafo = new Graph();
-                miGrafo.Tipo = "Activo";
+                this.miGrafo = new Graph();
+                this.miGrafo.Tipo = "Activo";
                 grafo = new CGrafo();
-                IlcSet.Graphs.Add(miGrafo);
-                IlcSet.SaveChanges();
-            }
-        }
-
-        public Graficador(User AuthUser)
-        {
-            this.AuthUser = AuthUser;
-            InitializeComponent();
-            nuevoNodo = null;
-            var_control = 0;
-            frmVentanaMultiple = null;
-            tiempo = 100;
-            this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
-            IlcSet = new ILC();
-            miGrafo = IlcSet.Graphs.Where(u => u.Tipo == "Activo").FirstOrDefault();
-            if (miGrafo != null)
-            {
-                grafo = new CGrafo();
-                if (miGrafo.Background != null)
-                    pbCanvas.BackgroundImage = Operaciones.byteArrayToImage(miGrafo.Background);
-                if (miGrafo.NodeIcon != null)
-                    grafo.NodoIcon = Operaciones.byteArrayToImage(miGrafo.NodeIcon);
-                foreach (Node miNodo in miGrafo.Nodes)
-                {
-                    nuevoNodo = new CVertice(miNodo.Name);
-                    nuevoNodo.Posicion = new Point(miNodo.X, miNodo.Y);
-                    grafo.AgregarVertice(nuevoNodo);
-                }
-                foreach (Edge miArista in miGrafo.Edges)
-                {
-                    grafo.AgregarArco(grafo.BuscarVertice(miArista.NodoSalida), grafo.BuscarVertice(miArista.NodoLlegada), miArista.Value);
-                }
-                nuevoNodo = null;
-                pbCanvas.Refresh();
-            }
-            else
-            {
-                miGrafo = new Graph();
-                miGrafo.Tipo = "Activo";
-                grafo = new CGrafo();
-                IlcSet.Graphs.Add(miGrafo);
+                IlcSet.Graphs.Add(this.miGrafo);
                 IlcSet.SaveChanges();
             }
         }
@@ -124,6 +90,7 @@ namespace Proyecto
             this.Text = "Bienvenido " + this.AuthUser.Name.ToString();
             if (AuthUser.Role.Name == "Admin")
             {
+                administrarToolStripMenuItem.Visible = true;
                 if (AuthUser.Gender == "M")
                 {
                     this.avatarPictureBox.Image = ((System.Drawing.Image)(Resources.AdminMale));
@@ -294,6 +261,45 @@ namespace Proyecto
             nuevoNodo = new CVertice();
             var_control = 2; // recordemos que es usado para indicar el estado en la pizarra: 0 ->
             // sin accion, 1 -> Dibujando arco, 2 -> Nuevo vértice
+        }
+
+        private void recorridoAnchuraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmVentanaMultiple = new VMultiple("Recorrido en anchura", "Valor del nodo inicial", graficadorStyleManager);
+            frmVentanaMultiple.ShowDialog(this);
+            if (frmVentanaMultiple.DialogResult == DialogResult.OK) //Si todo fue bien
+            {
+
+            }
+        }
+
+        private void recorridoProfundidadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmVentanaMultiple = new VMultiple("Eliminar Vertice", "Valor del vertice", graficadorStyleManager);
+            frmVentanaMultiple.ShowDialog(this);
+            if (frmVentanaMultiple.DialogResult == DialogResult.OK) //Si todo fue bien
+            {
+                if (grafo.BuscarVertice(frmVentanaMultiple.txtValor.Text.Trim()) != null) //si se encuentra el nodo
+                {
+                    grafo.ELiminarNodo(frmVentanaMultiple.txtValor.Text.Trim()); //Elimina un nodo con tener el valor string de este
+                    pbCanvas.Refresh(); //Se refresca el canvas
+                }
+                else //si no
+                {
+                    MessageBox.Show("El nodo No se encuentra en el grafo",
+                   "Error Nodo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void nuevaAristaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void linkChangePassword_Click(object sender, EventArgs e)

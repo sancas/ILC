@@ -24,7 +24,6 @@ namespace Proyecto
         {
             using (var conexion = new ILC())
             {
-
                 string hashedPassword = Operaciones.CalculateMD5Hash(this.txtPassword.Text);
                 User AuthUser = conexion.Users.Where(u => u.Email == this.txtEmail.Text && u.Password == hashedPassword).FirstOrDefault();
                 if (conexion.Roles.Count() == 0)
@@ -83,14 +82,6 @@ namespace Proyecto
         {
             this.StyleManager = LoginStyleManager;
             this.ActiveControl = txtEmail;
-        }
-
-        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                btnAceptar.PerformClick();
-            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

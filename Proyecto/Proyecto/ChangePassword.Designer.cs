@@ -207,6 +207,7 @@
             // btnCancelar
             // 
             this.btnCancelar.ActiveControl = null;
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Location = new System.Drawing.Point(250, 249);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(125, 48);
@@ -220,7 +221,6 @@
             this.btnCancelar.UseSelectable = true;
             this.btnCancelar.UseStyleColors = true;
             this.btnCancelar.UseTileImage = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 
@@ -244,6 +244,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(450, 320);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);

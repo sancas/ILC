@@ -65,7 +65,7 @@ namespace Proyecto
             this.ListaAdyacencia = new List < CArco > ();
             this.Color = Color.LightSeaGreen; // Definimos el color del nodo
             this.Dimensiones = new Size(size, size); // Definimos las dimensiones del circulo
-            this.FontColor = Color.Black; // Color de la fuente
+            this.FontColor = Color.White; // Color de la fuente
         }
         public CVertice(): this("") {} // Constructor por defecto
 
@@ -77,21 +77,19 @@ namespace Proyecto
             // Definimos donde dibujaremos el nodo
             Rectangle areaNodo = new Rectangle(this._posicion.X - radio, this._posicion.Y - radio,
                 this.dimensiones.Width, this.dimensiones.Height);
+
+            g.FillEllipse(b, areaNodo);
             if (Imagen != null)
                 g.DrawImage(Imagen, areaNodo);
-            else
-                g.FillEllipse(b, areaNodo);
 
-            g.DrawString(this.Valor, new Font("Arial", 14, FontStyle.Bold), new SolidBrush(color_fuente),
+            g.DrawString(this.Valor, new Font("Arial", 14), new SolidBrush(color_fuente),
                 this._posicion.X, this._posicion.Y,
                 new StringFormat() {
                     Alignment = StringAlignment.Center,
                         LineAlignment = StringAlignment.Center
                 }
             );
-            if (Imagen != null)
-                g.DrawRectangle(new Pen(Brushes.Black, (float)1.0), areaNodo);
-            else
+            if (Imagen == null)
                 g.DrawEllipse(new Pen(Brushes.Black, (float) 1.0), areaNodo);
             b.Dispose();
         }
