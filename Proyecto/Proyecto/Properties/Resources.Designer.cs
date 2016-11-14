@@ -93,6 +93,16 @@ namespace Proyecto.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Camion {
+            get {
+                object obj = ResourceManager.GetObject("Camion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Cancel {
             get {
                 object obj = ResourceManager.GetObject("Cancel", resourceCulture);
@@ -163,6 +173,26 @@ namespace Proyecto.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Peso {
+            get {
+                object obj = ResourceManager.GetObject("Peso", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Peso1 {
+            get {
+                object obj = ResourceManager.GetObject("Peso1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Roles {
             get {
                 object obj = ResourceManager.GetObject("Roles", resourceCulture);
@@ -176,6 +206,16 @@ namespace Proyecto.Properties {
         internal static System.Drawing.Bitmap Roles96 {
             get {
                 object obj = ResourceManager.GetObject("Roles96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TravelProblemName {
+            get {
+                object obj = ResourceManager.GetObject("TravelProblemName", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

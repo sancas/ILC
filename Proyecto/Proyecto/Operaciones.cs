@@ -13,21 +13,20 @@ namespace Proyecto
     public class Operaciones
     {
         protected User AuthUser;
-        private User nuevoUsuario;
 
         public Operaciones(User AuthUser)
         {
             this.AuthUser = AuthUser;
         }
-        public bool AgregarUsuario(string Name, string Email, string Gender, string Password, int Role)
+        public bool AgregarUsuario(string Name, string Username, string Gender, string Password, int Role)
         {
             if (AuthUser.Role.Name == "Admin")
             {
                 using (var conexion = new ILC())
                 {
-                    this.nuevoUsuario = new User();
+                    User nuevoUsuario = new User();
                     nuevoUsuario.Name = Name;
-                    nuevoUsuario.Email = Email;
+                    nuevoUsuario.Username = Username;
                     nuevoUsuario.Gender = Gender;
                     nuevoUsuario.RoleId = Role;
                     nuevoUsuario.Password = CalculateMD5Hash(Password);
@@ -73,6 +72,39 @@ namespace Proyecto
             MemoryStream ms = new MemoryStream(byteArrayIn);
             Image returnImage = Image.FromStream(ms);
             return returnImage;
+        }
+
+        public bool AgregarTravelProblem(string name, int peso)
+        {
+            if (AuthUser.Role.Name == "Admin" && peso != 0)
+            {
+                using (var conexion = new ILC())
+                {
+                    TravelProblem nuevoTravelProblem = new TravelProblem();
+                    nuevoTravelProblem.Name = name;
+                    nuevoTravelProblem.Peso = peso;
+                    conexion.TravelProblems.Add(nuevoTravelProblem);
+                    if (conexion.SaveChanges() == 1)
+                        return true;
+                }
+            }
+            return false;
+        }
+
+        public bool AgregarRole(string role)
+        {
+            if (AuthUser.Role.Name == "Admin")
+            {
+                using (var conexion = new ILC())
+                {
+                    Role rol = new Role();
+                    rol.Name = role;
+                    conexion.Roles.Add(rol);
+                    if (conexion.SaveChanges() == 1)
+                        return true;
+                }
+            }
+            return false;
         }
     }
 }

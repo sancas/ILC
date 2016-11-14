@@ -1,6 +1,6 @@
 ﻿namespace Proyecto
 {
-    partial class VMultiple
+    partial class FMultiple
     {
         /// <summary>
         /// Required designer variable.
@@ -28,54 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VMultiple));
-            this.txtValor = new MetroFramework.Controls.MetroTextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMultiple));
+            this.cmbInicial = new MetroFramework.Controls.MetroComboBox();
+            this.cmbFinal = new MetroFramework.Controls.MetroComboBox();
             this.btnCancelar = new MetroFramework.Controls.MetroTile();
             this.btnAceptar = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
-            // txtValor
+            // cmbInicial
             // 
+            this.cmbInicial.FontSize = MetroFramework.MetroComboBoxSize.Tall;
+            this.cmbInicial.FormattingEnabled = true;
+            this.cmbInicial.ItemHeight = 29;
+            this.cmbInicial.Location = new System.Drawing.Point(87, 80);
+            this.cmbInicial.Name = "cmbInicial";
+            this.cmbInicial.PromptText = "WaterMark";
+            this.cmbInicial.Size = new System.Drawing.Size(200, 35);
+            this.cmbInicial.TabIndex = 0;
+            this.cmbInicial.UseSelectable = true;
+            this.cmbInicial.UseStyleColors = true;
             // 
+            // cmbFinal
             // 
-            // 
-            this.txtValor.CustomButton.Image = null;
-            this.txtValor.CustomButton.Location = new System.Drawing.Point(172, 1);
-            this.txtValor.CustomButton.Name = "";
-            this.txtValor.CustomButton.Size = new System.Drawing.Size(27, 27);
-            this.txtValor.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtValor.CustomButton.TabIndex = 1;
-            this.txtValor.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtValor.CustomButton.UseSelectable = true;
-            this.txtValor.CustomButton.Visible = false;
-            this.txtValor.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.txtValor.Lines = new string[0];
-            this.txtValor.Location = new System.Drawing.Point(85, 86);
-            this.txtValor.MaxLength = 32767;
-            this.txtValor.Name = "txtValor";
-            this.txtValor.PasswordChar = '\0';
-            this.txtValor.PromptText = "WaterMark";
-            this.txtValor.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtValor.SelectedText = "";
-            this.txtValor.SelectionLength = 0;
-            this.txtValor.SelectionStart = 0;
-            this.txtValor.ShortcutsEnabled = true;
-            this.txtValor.Size = new System.Drawing.Size(200, 29);
-            this.txtValor.TabIndex = 0;
-            this.txtValor.UseSelectable = true;
-            this.txtValor.UseStyleColors = true;
-            this.txtValor.WaterMark = "WaterMark";
-            this.txtValor.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtValor.WaterMarkFont = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbFinal.FontSize = MetroFramework.MetroComboBoxSize.Tall;
+            this.cmbFinal.FormattingEnabled = true;
+            this.cmbFinal.ItemHeight = 29;
+            this.cmbFinal.Location = new System.Drawing.Point(87, 121);
+            this.cmbFinal.Name = "cmbFinal";
+            this.cmbFinal.PromptText = "WaterMark";
+            this.cmbFinal.Size = new System.Drawing.Size(200, 35);
+            this.cmbFinal.TabIndex = 1;
+            this.cmbFinal.UseSelectable = true;
+            this.cmbFinal.UseStyleColors = true;
             // 
             // btnCancelar
             // 
             this.btnCancelar.ActiveControl = null;
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(194, 155);
+            this.btnCancelar.Location = new System.Drawing.Point(196, 167);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(131, 48);
-            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.TileImage = ((System.Drawing.Image)(resources.GetObject("btnCancelar.TileImage")));
@@ -89,11 +82,10 @@
             // btnAceptar
             // 
             this.btnAceptar.ActiveControl = null;
-            this.btnAceptar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAceptar.Location = new System.Drawing.Point(45, 155);
+            this.btnAceptar.Location = new System.Drawing.Point(47, 167);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(131, 48);
-            this.btnAceptar.TabIndex = 4;
+            this.btnAceptar.TabIndex = 6;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAceptar.TileImage = ((System.Drawing.Image)(resources.GetObject("btnAceptar.TileImage")));
@@ -103,30 +95,31 @@
             this.btnAceptar.UseSelectable = true;
             this.btnAceptar.UseStyleColors = true;
             this.btnAceptar.UseTileImage = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // VMultiple
+            // FMultiple
             // 
-            this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(370, 226);
+            this.ClientSize = new System.Drawing.Size(374, 238);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
-            this.Controls.Add(this.txtValor);
-            this.KeyPreview = true;
-            this.MaximizeBox = false;
-            this.Name = "VMultiple";
+            this.Controls.Add(this.cmbFinal);
+            this.Controls.Add(this.cmbInicial);
+            this.Name = "FMultiple";
             this.Resizable = false;
+            this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Text";
-            this.Load += new System.EventHandler(this.VMultiple_Load);
+            this.Theme = MetroFramework.MetroThemeStyle.Default;
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        public MetroFramework.Controls.MetroTextBox txtValor;
         private MetroFramework.Controls.MetroTile btnCancelar;
         private MetroFramework.Controls.MetroTile btnAceptar;
+        public MetroFramework.Controls.MetroComboBox cmbInicial;
+        public MetroFramework.Controls.MetroComboBox cmbFinal;
     }
 }

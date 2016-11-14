@@ -18,7 +18,7 @@ namespace Proyecto.Migrations
                         GraphId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Graph", t => t.GraphId)
+                .ForeignKey("dbo.Graph", t => t.GraphId, cascadeDelete: true)
                 .Index(t => t.GraphId);
             
             CreateTable(
@@ -29,6 +29,7 @@ namespace Proyecto.Migrations
                         Tipo = c.String(nullable: false),
                         Background = c.Binary(),
                         NodeIcon = c.Binary(),
+                        Tiempo = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -43,7 +44,7 @@ namespace Proyecto.Migrations
                         GraphId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Graph", t => t.GraphId)
+                .ForeignKey("dbo.Graph", t => t.GraphId, cascadeDelete: true)
                 .Index(t => t.GraphId);
             
             CreateTable(
@@ -70,6 +71,16 @@ namespace Proyecto.Migrations
                 .ForeignKey("dbo.Role", t => t.RoleId)
                 .Index(t => t.RoleId);
             
+            CreateTable(
+                "dbo.TravelProblem",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false, maxLength: 50, unicode: false),
+                        Peso = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
         }
         
         public override void Down()
@@ -80,6 +91,7 @@ namespace Proyecto.Migrations
             DropIndex("dbo.User", new[] { "RoleId" });
             DropIndex("dbo.Node", new[] { "GraphId" });
             DropIndex("dbo.Edge", new[] { "GraphId" });
+            DropTable("dbo.TravelProblem");
             DropTable("dbo.User");
             DropTable("dbo.Role");
             DropTable("dbo.Node");

@@ -54,7 +54,7 @@ namespace Proyecto
                 }
             }
             lblAuthUserId.Text = "ID: " + AuthUser.Id.ToString();
-            lblAuthUserEmail.Text = AuthUser.Email;
+            lblAuthUserEmail.Text = AuthUser.Username;
             lblAuthUserName.Text = AuthUser.Name;
         }
 

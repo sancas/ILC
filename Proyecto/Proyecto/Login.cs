@@ -25,7 +25,7 @@ namespace Proyecto
             using (var conexion = new ILC())
             {
                 string hashedPassword = Operaciones.CalculateMD5Hash(this.txtPassword.Text);
-                User AuthUser = conexion.Users.Where(u => u.Email == this.txtEmail.Text && u.Password == hashedPassword).FirstOrDefault();
+                User AuthUser = conexion.Users.Where(u => u.Username == this.txtUsername.Text && u.Password == hashedPassword).FirstOrDefault();
                 if (conexion.Roles.Count() == 0)
                 {
                     Role Rol = new Role();
@@ -42,12 +42,13 @@ namespace Proyecto
                     User Admin = new User();
                     Admin.Name = "Admin";
                     Admin.Gender = "M";
-                    Admin.Email = "Admin";
+                    Admin.Username = "Admin";
                     Admin.Password = Operaciones.CalculateMD5Hash("123");
                     Admin.RoleId = 1;
+                    Admin.Role = conexion.Roles.Where(v => v.Name == "Admin").FirstOrDefault();
                     conexion.Users.Add(Admin);
                     conexion.SaveChanges();
-                    AuthUser = conexion.Users.Where(u => u.Email == this.txtEmail.Text && u.Password == hashedPassword).FirstOrDefault();
+                    AuthUser = conexion.Users.Where(u => u.Username == this.txtUsername.Text && u.Password == hashedPassword).FirstOrDefault();
                 }
                 if (AuthUser != null)
                 {
@@ -68,20 +69,20 @@ namespace Proyecto
                 }
                 else
                     MetroMessageBox.Show(this, "Verifique sus datos de inicio de sesion", "Login error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                    this.txtEmail.Focus();
+                    this.txtUsername.Focus();
             }
         }
 
         private void ClearData()
         {
-            this.txtEmail.Clear();
+            this.txtUsername.Clear();
             this.txtPassword.Clear();
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
             this.StyleManager = LoginStyleManager;
-            this.ActiveControl = txtEmail;
+            this.ActiveControl = txtUsername;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

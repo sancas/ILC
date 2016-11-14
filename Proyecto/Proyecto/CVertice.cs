@@ -16,7 +16,7 @@ namespace Proyecto
         public Boolean Visitado;//variable que sirve para marcar como visto el nodo en un recorrido
         public CVertice Padre;//nodo que sirve en los recorridos como el antecesor 
         public int distancianodo;//guarda la distancia que hay entre el nodo inicio en el algoritmo de Dijkstra
-        public Boolean pesoasignado;//variable que sirve se usa en el algoritmo de Dijkstra
+        public bool pesoasignado; 
         // Propiedades
         public Color Color {
             get {

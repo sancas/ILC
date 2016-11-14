@@ -7,13 +7,13 @@ namespace Proyecto.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class DeleteInCascadeGraphAdded : IMigrationMetadata
+    public sealed partial class changedEmail : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(DeleteInCascadeGraphAdded));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(changedEmail));
         
         string IMigrationMetadata.Id
         {
-            get { return "201611130814019_DeleteInCascadeGraphAdded"; }
+            get { return "201611140758217_changedEmail"; }
         }
         
         string IMigrationMetadata.Source

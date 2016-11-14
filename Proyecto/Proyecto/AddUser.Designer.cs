@@ -34,7 +34,7 @@
             this.txtPassword = new MetroFramework.Controls.MetroTextBox();
             this.cmbUserRol = new MetroFramework.Controls.MetroComboBox();
             this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtEmail = new MetroFramework.Controls.MetroTextBox();
+            this.txtUsuario = new MetroFramework.Controls.MetroTextBox();
             this.btnAceptar = new MetroFramework.Controls.MetroTile();
             this.btnCancelar = new MetroFramework.Controls.MetroTile();
             this.cmbGender = new MetroFramework.Controls.MetroComboBox();
@@ -136,42 +136,42 @@
             // 
             this.roleBindingSource.DataSource = typeof(Proyecto.Data.Role);
             // 
-            // txtEmail
+            // txtUsuario
             // 
             // 
             // 
             // 
-            this.txtEmail.CustomButton.Image = global::Proyecto.Properties.Resources.Email;
-            this.txtEmail.CustomButton.Location = new System.Drawing.Point(218, 1);
-            this.txtEmail.CustomButton.Name = "";
-            this.txtEmail.CustomButton.Size = new System.Drawing.Size(31, 31);
-            this.txtEmail.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtEmail.CustomButton.TabIndex = 1;
-            this.txtEmail.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtEmail.CustomButton.UseSelectable = true;
-            this.txtEmail.CustomButton.Visible = false;
-            this.txtEmail.DisplayIcon = true;
-            this.txtEmail.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.txtEmail.Icon = global::Proyecto.Properties.Resources.Email;
-            this.txtEmail.Lines = new string[0];
-            this.txtEmail.Location = new System.Drawing.Point(100, 74);
-            this.txtEmail.MaxLength = 32767;
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.PasswordChar = '\0';
-            this.txtEmail.PromptText = "E-Mail";
-            this.txtEmail.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtEmail.SelectedText = "";
-            this.txtEmail.SelectionLength = 0;
-            this.txtEmail.SelectionStart = 0;
-            this.txtEmail.ShortcutsEnabled = true;
-            this.txtEmail.ShowClearButton = true;
-            this.txtEmail.Size = new System.Drawing.Size(250, 33);
-            this.txtEmail.TabIndex = 0;
-            this.txtEmail.UseSelectable = true;
-            this.txtEmail.UseStyleColors = true;
-            this.txtEmail.WaterMark = "E-Mail";
-            this.txtEmail.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtEmail.WaterMarkFont = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtUsuario.CustomButton.Image = global::Proyecto.Properties.Resources.Email;
+            this.txtUsuario.CustomButton.Location = new System.Drawing.Point(218, 1);
+            this.txtUsuario.CustomButton.Name = "";
+            this.txtUsuario.CustomButton.Size = new System.Drawing.Size(31, 31);
+            this.txtUsuario.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtUsuario.CustomButton.TabIndex = 1;
+            this.txtUsuario.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtUsuario.CustomButton.UseSelectable = true;
+            this.txtUsuario.CustomButton.Visible = false;
+            this.txtUsuario.DisplayIcon = true;
+            this.txtUsuario.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txtUsuario.Icon = global::Proyecto.Properties.Resources.Name;
+            this.txtUsuario.Lines = new string[0];
+            this.txtUsuario.Location = new System.Drawing.Point(100, 74);
+            this.txtUsuario.MaxLength = 32767;
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.PasswordChar = '\0';
+            this.txtUsuario.PromptText = "Usuario";
+            this.txtUsuario.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtUsuario.SelectedText = "";
+            this.txtUsuario.SelectionLength = 0;
+            this.txtUsuario.SelectionStart = 0;
+            this.txtUsuario.ShortcutsEnabled = true;
+            this.txtUsuario.ShowClearButton = true;
+            this.txtUsuario.Size = new System.Drawing.Size(250, 33);
+            this.txtUsuario.TabIndex = 0;
+            this.txtUsuario.UseSelectable = true;
+            this.txtUsuario.UseStyleColors = true;
+            this.txtUsuario.WaterMark = "Usuario";
+            this.txtUsuario.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtUsuario.WaterMarkFont = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // btnAceptar
             // 
@@ -216,8 +216,8 @@
             this.cmbGender.FormattingEnabled = true;
             this.cmbGender.ItemHeight = 29;
             this.cmbGender.Items.AddRange(new object[] {
-            "Hombre",
-            "Mujer"});
+            "Male",
+            "Female"});
             this.cmbGender.Location = new System.Drawing.Point(100, 184);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.PromptText = "Elija un genero";
@@ -239,7 +239,7 @@
             this.Controls.Add(this.cmbUserRol);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtUsuario);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "AddUser";
@@ -253,7 +253,7 @@
 
         #endregion
 
-        private MetroFramework.Controls.MetroTextBox txtEmail;
+        private MetroFramework.Controls.MetroTextBox txtUsuario;
         private MetroFramework.Controls.MetroTextBox txtName;
         private MetroFramework.Controls.MetroTextBox txtPassword;
         private MetroFramework.Controls.MetroComboBox cmbUserRol;

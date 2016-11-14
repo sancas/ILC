@@ -25,6 +25,8 @@ namespace Proyecto.Data
 
         public byte[] NodeIcon { get; set; }
 
+        public int Tiempo { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Edge> Edges { get; set; }
 

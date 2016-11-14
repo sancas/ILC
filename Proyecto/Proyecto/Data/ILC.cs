@@ -16,6 +16,7 @@ namespace Proyecto.Data
         public virtual DbSet<Graph> Graphs { get; set; }
         public virtual DbSet<Node> Nodes { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<TravelProblem> TravelProblems { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -34,6 +35,10 @@ namespace Proyecto.Data
                 .HasMany(e => e.Users)
                 .WithRequired(e => e.Role)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<TravelProblem>()
+                .Property(e => e.Name)
+                .IsUnicode(false);
 
             modelBuilder.Entity<User>()
                 .Property(e => e.Gender)

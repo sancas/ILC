@@ -33,8 +33,6 @@
             this.TopUserInfoPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.lblAuthUserEmail = new MetroFramework.Controls.MetroLabel();
             this.linkChangePassword = new MetroFramework.Controls.MetroLink();
-            this.avatarPictureBox = new System.Windows.Forms.PictureBox();
-            this.pbCanvas = new System.Windows.Forms.Panel();
             this.graficadorStyleManager = new MetroFramework.Components.MetroStyleManager(this.components);
             this.CMSMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.verticeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,11 +49,19 @@
             this.floydToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirReporteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.flowLayoutCentralPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.reestablecerGrafoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pbCanvas = new System.Windows.Forms.PictureBox();
+            this.pbCamion = new System.Windows.Forms.PictureBox();
+            this.avatarPictureBox = new System.Windows.Forms.PictureBox();
             this.TopPanel.SuspendLayout();
             this.TopUserInfoPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.avatarPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.graficadorStyleManager)).BeginInit();
             this.CMSMenu.SuspendLayout();
+            this.flowLayoutCentralPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCanvas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCamion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avatarPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // TopPanel
@@ -66,9 +72,10 @@
             this.TopPanel.HorizontalScrollbarBarColor = true;
             this.TopPanel.HorizontalScrollbarHighlightOnWheel = false;
             this.TopPanel.HorizontalScrollbarSize = 10;
-            this.TopPanel.Location = new System.Drawing.Point(20, 60);
+            this.TopPanel.Location = new System.Drawing.Point(0, 60);
             this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(733, 54);
+            this.TopPanel.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.TopPanel.Size = new System.Drawing.Size(775, 54);
             this.TopPanel.TabIndex = 1;
             this.TopPanel.VerticalScrollbarBarColor = true;
             this.TopPanel.VerticalScrollbarHighlightOnWheel = false;
@@ -81,7 +88,7 @@
             this.TopUserInfoPanel.Controls.Add(this.linkChangePassword);
             this.TopUserInfoPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.TopUserInfoPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.TopUserInfoPanel.Location = new System.Drawing.Point(554, 0);
+            this.TopUserInfoPanel.Location = new System.Drawing.Point(576, 0);
             this.TopUserInfoPanel.Name = "TopUserInfoPanel";
             this.TopUserInfoPanel.Size = new System.Drawing.Size(131, 54);
             this.TopUserInfoPanel.TabIndex = 2;
@@ -108,30 +115,6 @@
             this.linkChangePassword.UseStyleColors = true;
             this.linkChangePassword.Click += new System.EventHandler(this.linkChangePassword_Click);
             // 
-            // avatarPictureBox
-            // 
-            this.avatarPictureBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.avatarPictureBox.InitialImage = null;
-            this.avatarPictureBox.Location = new System.Drawing.Point(685, 0);
-            this.avatarPictureBox.Name = "avatarPictureBox";
-            this.avatarPictureBox.Size = new System.Drawing.Size(48, 54);
-            this.avatarPictureBox.TabIndex = 3;
-            this.avatarPictureBox.TabStop = false;
-            // 
-            // pbCanvas
-            // 
-            this.pbCanvas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbCanvas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbCanvas.Location = new System.Drawing.Point(20, 114);
-            this.pbCanvas.Name = "pbCanvas";
-            this.pbCanvas.Size = new System.Drawing.Size(733, 441);
-            this.pbCanvas.TabIndex = 2;
-            this.pbCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.pbCanvas_Paint);
-            this.pbCanvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbCanvas_MouseDown);
-            this.pbCanvas.MouseLeave += new System.EventHandler(this.pbCanvas_MouseLeave);
-            this.pbCanvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbCanvas_MouseMove);
-            this.pbCanvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbCanvas_MouseUp);
-            // 
             // graficadorStyleManager
             // 
             this.graficadorStyleManager.Owner = this;
@@ -143,9 +126,10 @@
             this.aristaToolStripMenuItem,
             this.recorridoToolStripMenuItem,
             this.algoritmosToolStripMenuItem,
-            this.administrarToolStripMenuItem});
+            this.administrarToolStripMenuItem,
+            this.reestablecerGrafoToolStripMenuItem});
             this.CMSMenu.Name = "CMSMenu";
-            this.CMSMenu.Size = new System.Drawing.Size(153, 136);
+            this.CMSMenu.Size = new System.Drawing.Size(172, 136);
             // 
             // verticeToolStripMenuItem
             // 
@@ -153,7 +137,7 @@
             this.nuevoVerticeToolStripMenuItem,
             this.eliminarToolStripMenuItem});
             this.verticeToolStripMenuItem.Name = "verticeToolStripMenuItem";
-            this.verticeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.verticeToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.verticeToolStripMenuItem.Text = "Vertice";
             // 
             // nuevoVerticeToolStripMenuItem
@@ -176,13 +160,13 @@
             this.nuevaAristaToolStripMenuItem,
             this.eliminarAristaToolStripMenuItem});
             this.aristaToolStripMenuItem.Name = "aristaToolStripMenuItem";
-            this.aristaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aristaToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.aristaToolStripMenuItem.Text = "Arista";
             // 
             // nuevaAristaToolStripMenuItem
             // 
             this.nuevaAristaToolStripMenuItem.Name = "nuevaAristaToolStripMenuItem";
-            this.nuevaAristaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nuevaAristaToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.nuevaAristaToolStripMenuItem.Text = "Nueva Arista";
             this.nuevaAristaToolStripMenuItem.Click += new System.EventHandler(this.nuevaAristaToolStripMenuItem_Click);
             // 
@@ -191,6 +175,7 @@
             this.eliminarAristaToolStripMenuItem.Name = "eliminarAristaToolStripMenuItem";
             this.eliminarAristaToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.eliminarAristaToolStripMenuItem.Text = "Eliminar Arista";
+            this.eliminarAristaToolStripMenuItem.Click += new System.EventHandler(this.eliminarAristaToolStripMenuItem_Click);
             // 
             // recorridoToolStripMenuItem
             // 
@@ -198,7 +183,7 @@
             this.anchuraToolStripMenuItem,
             this.profundidadToolStripMenuItem});
             this.recorridoToolStripMenuItem.Name = "recorridoToolStripMenuItem";
-            this.recorridoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.recorridoToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.recorridoToolStripMenuItem.Text = "Recorrido";
             // 
             // anchuraToolStripMenuItem
@@ -221,7 +206,7 @@
             this.dijkstraToolStripMenuItem1,
             this.floydToolStripMenuItem1});
             this.algoritmosToolStripMenuItem.Name = "algoritmosToolStripMenuItem";
-            this.algoritmosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.algoritmosToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.algoritmosToolStripMenuItem.Text = "Algoritmos";
             // 
             // dijkstraToolStripMenuItem1
@@ -229,19 +214,21 @@
             this.dijkstraToolStripMenuItem1.Name = "dijkstraToolStripMenuItem1";
             this.dijkstraToolStripMenuItem1.Size = new System.Drawing.Size(113, 22);
             this.dijkstraToolStripMenuItem1.Text = "Dijkstra";
+            this.dijkstraToolStripMenuItem1.Click += new System.EventHandler(this.dijkstraToolStripMenuItem1_Click);
             // 
             // floydToolStripMenuItem1
             // 
             this.floydToolStripMenuItem1.Name = "floydToolStripMenuItem1";
             this.floydToolStripMenuItem1.Size = new System.Drawing.Size(113, 22);
             this.floydToolStripMenuItem1.Text = "Floyd";
+            this.floydToolStripMenuItem1.Click += new System.EventHandler(this.floydToolStripMenuItem1_Click);
             // 
             // administrarToolStripMenuItem
             // 
             this.administrarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.imprimirReporteToolStripMenuItem1});
             this.administrarToolStripMenuItem.Name = "administrarToolStripMenuItem";
-            this.administrarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.administrarToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.administrarToolStripMenuItem.Text = "Administrar";
             this.administrarToolStripMenuItem.Visible = false;
             // 
@@ -251,26 +238,88 @@
             this.imprimirReporteToolStripMenuItem1.Size = new System.Drawing.Size(164, 22);
             this.imprimirReporteToolStripMenuItem1.Text = "Imprimir Reporte";
             // 
+            // flowLayoutCentralPanel
+            // 
+            this.flowLayoutCentralPanel.AutoScroll = true;
+            this.flowLayoutCentralPanel.Controls.Add(this.pbCanvas);
+            this.flowLayoutCentralPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutCentralPanel.Location = new System.Drawing.Point(0, 114);
+            this.flowLayoutCentralPanel.Name = "flowLayoutCentralPanel";
+            this.flowLayoutCentralPanel.Size = new System.Drawing.Size(775, 486);
+            this.flowLayoutCentralPanel.TabIndex = 3;
+            // 
+            // reestablecerGrafoToolStripMenuItem
+            // 
+            this.reestablecerGrafoToolStripMenuItem.Name = "reestablecerGrafoToolStripMenuItem";
+            this.reestablecerGrafoToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.reestablecerGrafoToolStripMenuItem.Text = "Reestablecer grafo";
+            this.reestablecerGrafoToolStripMenuItem.Click += new System.EventHandler(this.reestablecerGrafoToolStripMenuItem_Click);
+            // 
+            // pbCanvas
+            // 
+            this.pbCanvas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbCanvas.Location = new System.Drawing.Point(3, 3);
+            this.pbCanvas.Name = "pbCanvas";
+            this.pbCanvas.Size = new System.Drawing.Size(100, 50);
+            this.pbCanvas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbCanvas.TabIndex = 2;
+            this.pbCanvas.TabStop = false;
+            this.pbCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.pbCanvas_Paint);
+            this.pbCanvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbCanvas_MouseDown);
+            this.pbCanvas.MouseLeave += new System.EventHandler(this.pbCanvas_MouseLeave);
+            this.pbCanvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbCanvas_MouseMove);
+            this.pbCanvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbCanvas_MouseUp);
+            // 
+            // pbCamion
+            // 
+            this.pbCamion.Image = global::Proyecto.Properties.Resources.Camion;
+            this.pbCamion.Location = new System.Drawing.Point(300, 350);
+            this.pbCamion.Name = "pbCamion";
+            this.pbCamion.Size = new System.Drawing.Size(48, 48);
+            this.pbCamion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbCamion.TabIndex = 3;
+            this.pbCamion.TabStop = false;
+            this.pbCamion.Visible = false;
+            // 
+            // avatarPictureBox
+            // 
+            this.avatarPictureBox.Dock = System.Windows.Forms.DockStyle.Right;
+            this.avatarPictureBox.InitialImage = null;
+            this.avatarPictureBox.Location = new System.Drawing.Point(707, 0);
+            this.avatarPictureBox.Name = "avatarPictureBox";
+            this.avatarPictureBox.Size = new System.Drawing.Size(48, 54);
+            this.avatarPictureBox.TabIndex = 3;
+            this.avatarPictureBox.TabStop = false;
+            // 
             // Graficador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(773, 575);
-            this.Controls.Add(this.pbCanvas);
+            this.ClientSize = new System.Drawing.Size(775, 600);
+            this.Controls.Add(this.pbCamion);
+            this.Controls.Add(this.flowLayoutCentralPanel);
             this.Controls.Add(this.TopPanel);
+            this.MinimumSize = new System.Drawing.Size(775, 600);
             this.Name = "Graficador";
+            this.Padding = new System.Windows.Forms.Padding(0, 60, 0, 0);
             this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Graficador";
             this.Theme = MetroFramework.MetroThemeStyle.Default;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Graficador_Load);
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();
             this.TopUserInfoPanel.ResumeLayout(false);
             this.TopUserInfoPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.avatarPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.graficadorStyleManager)).EndInit();
             this.CMSMenu.ResumeLayout(false);
+            this.flowLayoutCentralPanel.ResumeLayout(false);
+            this.flowLayoutCentralPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCanvas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCamion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avatarPictureBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -281,7 +330,6 @@
         private MetroFramework.Controls.MetroLabel lblAuthUserEmail;
         private MetroFramework.Controls.MetroLink linkChangePassword;
         private System.Windows.Forms.PictureBox avatarPictureBox;
-        private System.Windows.Forms.Panel pbCanvas;
         private MetroFramework.Components.MetroStyleManager graficadorStyleManager;
         private System.Windows.Forms.ContextMenuStrip CMSMenu;
         private System.Windows.Forms.ToolStripMenuItem verticeToolStripMenuItem;
@@ -298,5 +346,9 @@
         private System.Windows.Forms.ToolStripMenuItem floydToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem administrarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem imprimirReporteToolStripMenuItem1;
+        private System.Windows.Forms.PictureBox pbCanvas;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutCentralPanel;
+        private System.Windows.Forms.ToolStripMenuItem reestablecerGrafoToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pbCamion;
     }
 }

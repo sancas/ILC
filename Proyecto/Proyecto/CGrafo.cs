@@ -170,20 +170,31 @@ namespace Proyecto
         }
 
         //comprobar si la arista existe
-        public bool Comprobararista(string o, string d)
+        public bool AristaExist(string o, string d)
         {
-            bool q = false;
             foreach (CVertice nodo in nodos)
             {
                 foreach (CArco a in nodo.ListaAdyacencia)
                 {
                     if (nodo.ListaAdyacencia != null && nodo.Valor == o && a.nDestino.Valor == d)
                     {
-                        q = true;
+                        return true;
                     }
                 }
             }
-            return q;
+            return false;
+        }
+
+        //funcion que desmarca como visitados todos los nodos del grafo
+        public void Desmarcar()
+        {
+            foreach (CVertice n in nodos)
+            {
+                n.Visitado = false;
+                n.Padre = null;
+                n.distancianodo = int.MaxValue;
+                n.pesoasignado = false;
+            }
         }
 
         //Funcion para colorear y resaltar una arista
@@ -199,18 +210,6 @@ namespace Proyecto
                         a.grosor_flecha = 4;
                     }
                 }
-            }
-        }
-
-        //funcion que desmarca como visitados todos los nodos del grafo
-        public void Desmarcar()
-        {
-            foreach (CVertice n in nodos)
-            {
-                n.Visitado = false;
-                n.Padre = null;
-                n.distancianodo = int.MaxValue;
-                n.pesoasignado = false;
             }
         }
 

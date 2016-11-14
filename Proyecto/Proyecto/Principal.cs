@@ -39,7 +39,7 @@ namespace Proyecto
             {
                 tb.ResetText();
             }
-            this.lblAuthUserEmail.Text = AuthUser.Email;
+            this.lblAuthUsername.Text = AuthUser.Username;
             this.Text = "Bienvenido " + this.AuthUser.Name.ToString();
             if (AuthUser.Role.Name == "Admin")
             {
@@ -181,7 +181,7 @@ namespace Proyecto
         private void roleBindingNavigatorNewItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            AddRole frmAddRole = new AddRole();
+            AddRole frmAddRole = new AddRole(AuthUser, PrincipalStyleManager);
             frmAddRole.ShowDialog(this);
             this.Show();
             this.Focus();
@@ -230,6 +230,8 @@ namespace Proyecto
 
         private void graphBindingSource_CurrentChanged(object sender, EventArgs e)
         {
+            pbGraphBackground.Image = null;
+            pbNodo.Image = null;
             Graph miGrafo = (Graph)graphBindingSource.Current;
             if (miGrafo.Background != null)
                 pbGraphBackground.Image = Operaciones.byteArrayToImage(miGrafo.Background);
@@ -239,6 +241,7 @@ namespace Proyecto
                 activoMetroToggle.Checked = true;
             else
                 activoMetroToggle.Checked = false;
+            txtGraphTime.Text = miGrafo.Tiempo.ToString();
         }
 
         private void btnCambiarNodo_Click(object sender, EventArgs e)
@@ -297,8 +300,75 @@ namespace Proyecto
             Graph miGrafo = (Graph)graphBindingSource.Current;
             Graficador frmGraficador = new Graficador(AuthUser, miGrafo);
             this.Hide();
-            frmGraficador.ShowDialog(this);
+            frmGraficador.Owner = this;
+            frmGraficador.Show(this);
             this.Show();
+        }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AddTravelProblem frmAddTravelProblem = new AddTravelProblem(AuthUser, PrincipalStyleManager);
+            frmAddTravelProblem.ShowDialog(this);
+            this.Show();
+            this.Focus();
+            if (frmAddTravelProblem.DialogResult == DialogResult.OK)
+                MetroFramework.MetroMessageBox.Show(this, "Problema de viaje creado correctamente", "Travel Problem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MetroFramework.MetroMessageBox.Show(this, "No se creo el problema de viaje", "Travel Problem", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            this.travelProblemBindingSource.DataSource = this.IlcSet.TravelProblems.ToList();
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            if (this.travelProblemsDataGridView.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow dgvw in travelProblemsDataGridView.SelectedRows)
+                {
+                    IlcSet.TravelProblems.Remove(IlcSet.TravelProblems.Find(dgvw.Cells[0].Value));
+                    this.travelProblemsDataGridView.Rows.RemoveAt(dgvw.Index);
+                }
+                IlcSet.SaveChanges();
+            }
+        }
+
+        async private void guardarToolStripButton_Click(object sender, EventArgs e)
+        {
+            if (await this.IlcSet.SaveChangesAsync() == 1)
+                MetroFramework.MetroMessageBox.Show(this, "Base de datos guardada correctamente", "Base de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MetroFramework.MetroMessageBox.Show(this, "No se pudo guardar la base", "Error Base de datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void TravelProblemsTabPage_Enter(object sender, EventArgs e)
+        {
+            this.travelProblemBindingSource.DataSource = this.IlcSet.TravelProblems.ToList();
+        }
+
+        private void linkLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtGraphTime_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtGraphTime_KeyUp(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9) || (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9) || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete)
+            {
+                Graph miGrafo = (Graph)graphBindingSource.Current;
+                if (string.IsNullOrWhiteSpace(txtGraphTime.Text))
+                    IlcSet.Graphs.Where(v => v.Id == miGrafo.Id).FirstOrDefault().Tiempo = 0;
+                else
+                    IlcSet.Graphs.Where(v => v.Id == miGrafo.Id).FirstOrDefault().Tiempo = int.Parse(txtGraphTime.Text);
+                IlcSet.SaveChanges();
+            }
         }
     }
 }
